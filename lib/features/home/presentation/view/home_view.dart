@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/adaptive_layout_widgets.dart';
-import 'package:shope_web/features/home/presentation/view/widgets/home_view_body.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/desktop_layout.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
