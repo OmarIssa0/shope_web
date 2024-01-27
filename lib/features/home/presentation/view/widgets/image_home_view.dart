@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shope_web/core/utils/app_image.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_expanded_widgets.dart';
 
@@ -9,18 +8,24 @@ class ImageHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomExpandedWidgets(
-      child: Row(
-        children: [
-          SvgPicture.asset(Assets.imagesWidget),
-          const SizedBox(width: 24),
-          Column(
+      child: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(Assets.imagesWidget2),
-              const SizedBox(height: 24),
-              SvgPicture.asset(Assets.imagesWidget3),
+              Image.asset(Assets.imagesWidgetPNG),
+              const SizedBox(width: 24),
+              Column(
+                children: [
+                  Image.asset(Assets.imagesWidget2PNG),
+                  const SizedBox(height: 24),
+                  Image.asset(Assets.imagesWidget3PNG),
+                ],
+              )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
