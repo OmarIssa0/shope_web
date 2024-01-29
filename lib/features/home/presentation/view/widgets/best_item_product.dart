@@ -38,7 +38,7 @@ class BestItemProduct extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                OfDiscount(),
+                OfDiscount(discount: '32% OFF'),
                 SizedBox(height: 6),
                 HotWidgets(),
               ],

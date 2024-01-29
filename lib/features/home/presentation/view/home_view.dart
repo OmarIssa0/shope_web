@@ -12,8 +12,8 @@ class HomeView extends StatelessWidget {
       backgroundColor: AppColor.kWhite,
       body: AdaptiveLayout(
         desktopLayout: (context) => const DesktopLayout(),
-        tabletLayout: (context) => const SizedBox(),
-        mobileLayout: (context) => const SizedBox(),
+        tabletLayout: (context) => const DesktopLayout(),
+        mobileLayout: (context) => const DesktopLayout(),
       ),
     );
   }

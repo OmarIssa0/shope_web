@@ -5,6 +5,50 @@ class Assets {
   /// assets/images/ArrowsCounterClockwise.svg
   static const String imagesArrowsCounterClockwise = "assets/images/ArrowsCounterClockwise.svg";
 
+  /// Assets for imagesBG
+  /// assets/images/BG.png
+  static const String imagesBG = "assets/images/BG.png";
+
+  /// Assets for imagesBannerButtonOne
+  /// assets/images/BannerButtonOne.png
+  static const String imagesBannerButtonOne = "assets/images/BannerButtonOne.png";
+
+  /// Assets for imagesBannerButtonToo
+  /// assets/images/BannerButtonToo.png
+  static const String imagesBannerButtonToo = "assets/images/BannerButtonToo.png";
+
+  /// Assets for imagesBannerListViewProdcut
+  /// assets/images/Banner_listView_prodcut.png
+  static const String imagesBannerListViewProdcut = "assets/images/Banner_listView_prodcut.png";
+
+  /// Assets for imagesBannerListViewProdcutToo
+  /// assets/images/Banner_listView_prodcutToo.png
+  static const String imagesBannerListViewProdcutToo = "assets/images/Banner_listView_prodcutToo.png";
+
+  /// Assets for imagesCategotyAccessoriesPNG
+  /// assets/images/categoty_accessoriesPNG.png
+  static const String imagesCategotyAccessoriesPNG = "assets/images/categoty_accessoriesPNG.png";
+
+  /// Assets for imagesCategotyCamPNG
+  /// assets/images/categoty_camPNG.png
+  static const String imagesCategotyCamPNG = "assets/images/categoty_camPNG.png";
+
+  /// Assets for imagesCategotyHeadPhonePNG
+  /// assets/images/categoty_headPhonePNG.png
+  static const String imagesCategotyHeadPhonePNG = "assets/images/categoty_headPhonePNG.png";
+
+  /// Assets for imagesCategotyPcPNG
+  /// assets/images/categoty_pcPNG.png
+  static const String imagesCategotyPcPNG = "assets/images/categoty_pcPNG.png";
+
+  /// Assets for imagesCategotyPhonePNG
+  /// assets/images/categoty_phonePNG.png
+  static const String imagesCategotyPhonePNG = "assets/images/categoty_phonePNG.png";
+
+  /// Assets for imagesCategotyTvPNG
+  /// assets/images/categoty_tvPNG.png
+  static const String imagesCategotyTvPNG = "assets/images/categoty_tvPNG.png";
+
   /// Assets for imagesCreditCard
   /// assets/images/CreditCard.svg
   static const String imagesCreditCard = "assets/images/CreditCard.svg";
@@ -97,21 +141,21 @@ class Assets {
   /// assets/images/Widget2.svg
   static const String imagesWidget2 = "assets/images/Widget2.svg";
 
-  /// Assets for imagesWidget2PNG
-  /// assets/images/Widget2PNG.png
-  static const String imagesWidget2PNG = "assets/images/Widget2PNG.png";
+  /// Assets for imagesWidget2PNG2
+  /// assets/images/Widget2PNG2.png
+  static const String imagesWidget2PNG2 = "assets/images/Widget2PNG2.png";
 
   /// Assets for imagesWidget3
   /// assets/images/Widget3.svg
   static const String imagesWidget3 = "assets/images/Widget3.svg";
 
-  /// Assets for imagesWidget3PNG
-  /// assets/images/Widget3PNG.png
-  static const String imagesWidget3PNG = "assets/images/Widget3PNG.png";
+  /// Assets for imagesWidget3PNG3
+  /// assets/images/Widget3PNG3.png
+  static const String imagesWidget3PNG3 = "assets/images/Widget3PNG3.png";
 
-  /// Assets for imagesWidgetPNG
-  /// assets/images/WidgetPNG.png
-  static const String imagesWidgetPNG = "assets/images/WidgetPNG.png";
+  /// Assets for imagesWidgetPNG1
+  /// assets/images/WidgetPNG1.png
+  static const String imagesWidgetPNG1 = "assets/images/WidgetPNG1.png";
 
   /// Assets for imagesYoutube
   /// assets/images/Youtube.svg

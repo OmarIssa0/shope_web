@@ -11,7 +11,7 @@ class SearchTextFiled extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(
-            vertical: 20, horizontal: MediaQuery.sizeOf(context).width * .2),
+            vertical: 20, horizontal: MediaQuery.sizeOf(context).width * .1),
         child: Container(
           color: AppColor.kWhite,
           child: TextField(

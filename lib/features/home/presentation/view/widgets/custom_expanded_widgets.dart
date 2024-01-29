@@ -10,7 +10,7 @@ class CustomExpandedWidgets extends StatelessWidget {
     return Row(
       children: [
         const Expanded(flex: 1, child: SizedBox()),
-        Expanded(flex: 10, child: child),
+        Expanded(flex: 9, child: child),
         const Expanded(flex: 1, child: SizedBox()),
       ],
     );
