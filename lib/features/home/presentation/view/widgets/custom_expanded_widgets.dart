@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shope_web/core/utils/size_config.dart';
 
 class CustomExpandedWidgets extends StatelessWidget {
   const CustomExpandedWidgets({super.key, required this.child});
@@ -10,9 +11,13 @@ class CustomExpandedWidgets extends StatelessWidget {
     return Row(
       children: [
         const Expanded(flex: 1, child: SizedBox()),
-        Expanded(flex: 9, child: child),
+        Expanded(
+          flex: MediaQuery.sizeOf(context).width < SizeConfig.desktop ? 10 : 5,
+          child: child,
+        ),
         const Expanded(flex: 1, child: SizedBox()),
       ],
     );
   }
 }
+// flex 1920 / 11flex = 174.5

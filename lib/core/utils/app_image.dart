@@ -25,6 +25,10 @@ class Assets {
   /// assets/images/Banner_listView_prodcutToo.png
   static const String imagesBannerListViewProdcutToo = "assets/images/Banner_listView_prodcutToo.png";
 
+  /// Assets for imagesBannerMacBook
+  /// assets/images/Banner_mac_book.png
+  static const String imagesBannerMacBook = "assets/images/Banner_mac_book.png";
+
   /// Assets for imagesCategotyAccessoriesPNG
   /// assets/images/categoty_accessoriesPNG.png
   static const String imagesCategotyAccessoriesPNG = "assets/images/categoty_accessoriesPNG.png";
@@ -93,9 +97,21 @@ class Assets {
   /// assets/images/Logo.svg
   static const String imagesLogo = "assets/images/Logo.svg";
 
+  /// Assets for imagesLogoOrangePNG
+  /// assets/images/Logo_orangePNG.png
+  static const String imagesLogoOrangePNG = "assets/images/Logo_orangePNG.png";
+
   /// Assets for imagesMapPinLine
   /// assets/images/MapPinLine.svg
   static const String imagesMapPinLine = "assets/images/MapPinLine.svg";
+
+  /// Assets for imagesMobileApp
+  /// assets/images/MobileApp.png
+  static const String imagesMobileApp = "assets/images/MobileApp.png";
+
+  /// Assets for imagesMobileAppIos
+  /// assets/images/MobileAppIos.png
+  static const String imagesMobileAppIos = "assets/images/MobileAppIos.png";
 
   /// Assets for imagesPackage
   /// assets/images/Package.svg

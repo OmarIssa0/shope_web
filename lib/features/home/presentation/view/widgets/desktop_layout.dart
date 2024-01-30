@@ -3,8 +3,11 @@ import 'package:shope_web/features/home/presentation/view/widgets/banner_image.d
 import 'package:shope_web/features/home/presentation/view/widgets/best_deals.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/box_info.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/featured_product.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/footer_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/heder_section.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/image_home_view.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/image_mac_book.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/item_best_deals_produt.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/list_view_category.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/pc_accessories.dart';
@@ -46,7 +49,12 @@ class DesktopLayout extends StatelessWidget {
           SizedBox(height: 72),
           //
           ComputerAccessoriesSection(),
-          SizedBox(height: 26),
+          SizedBox(height: 72),
+          //
+          ImageMacBook(),
+          SizedBox(height: 72),
+          FooterWidgets(),
+          InfoDevFooter(),
         ],
       ),
     );
