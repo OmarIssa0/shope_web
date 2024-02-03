@@ -13,8 +13,8 @@ import 'package:shope_web/features/home/presentation/view/widgets/list_view_cate
 import 'package:shope_web/features/home/presentation/view/widgets/pc_accessories.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/shop_with_category.dart';
 
-class DesktopLayout extends StatelessWidget {
-  const DesktopLayout({super.key});
+class DesktopLayoutHomeView extends StatelessWidget {
+  const DesktopLayoutHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

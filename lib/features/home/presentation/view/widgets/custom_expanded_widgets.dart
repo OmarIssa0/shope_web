@@ -12,7 +12,7 @@ class CustomExpandedWidgets extends StatelessWidget {
       children: [
         const Expanded(flex: 1, child: SizedBox()),
         Expanded(
-          flex: MediaQuery.sizeOf(context).width < SizeConfig.desktop ? 10 : 5,
+          flex: MediaQuery.sizeOf(context).width < SizeConfig.desktop ? 15 : 5,
           child: child,
         ),
         const Expanded(flex: 1, child: SizedBox()),

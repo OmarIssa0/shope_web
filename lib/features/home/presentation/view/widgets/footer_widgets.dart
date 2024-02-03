@@ -21,11 +21,11 @@ class FooterWidgets extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CompanyInformationFooter(),
+            Expanded(child: CompanyInformationFooter()),
             SizedBox(width: 12),
-            TopCategoryFooter(),
-            QuickLinksFooter(),
-            DownloadAppFooter()
+            Expanded(child: TopCategoryFooter()),
+            Expanded(child: QuickLinksFooter()),
+            Expanded(child: DownloadAppFooter())
           ],
         ),
       ),

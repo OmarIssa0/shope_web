@@ -8,21 +8,19 @@ class DownloadAppFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'DOWNLOAD APP',
-            style: AppStyles.styleMedium16(context, color: AppColor.kWhite),
-          ),
-          const SizedBox(height: 24),
-          Image.asset(Assets.imagesMobileApp),
-          const SizedBox(height: 12),
-          Image.asset(Assets.imagesMobileAppIos),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'DOWNLOAD APP',
+          style: AppStyles.styleMedium16(context, color: AppColor.kWhite),
+        ),
+        const SizedBox(height: 24),
+        Image.asset(Assets.imagesMobileApp),
+        const SizedBox(height: 12),
+        Image.asset(Assets.imagesMobileAppIos),
+      ],
     );
   }
 }

@@ -12,9 +12,10 @@ class ShopeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      home: const HomeView(),
+      theme: ThemeData(useMaterial3: true),
     );
   }
 }

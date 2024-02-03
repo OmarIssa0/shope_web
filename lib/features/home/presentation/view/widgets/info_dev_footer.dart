@@ -19,10 +19,15 @@ class InfoDevFooter extends StatelessWidget {
           color: AppColor.kGray900,
           padding: const EdgeInsets.symmetric(vertical: 24),
           child: Center(
-            child: Text(
-              'Omar - E-commerce template © 2024. Development and programming',
-              style:
-                  AppStyles.styleRegular14(context, color: AppColor.kGray300),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: SelectableText(
+                cursorColor: AppColor.kSecondary700,
+                showCursor: true ,
+                'Omar - E-commerce template © 2024. Development and programming',
+                style:
+                    AppStyles.styleRegular14(context, color: AppColor.kGray300),
+              ),
             ),
           ),
         ),

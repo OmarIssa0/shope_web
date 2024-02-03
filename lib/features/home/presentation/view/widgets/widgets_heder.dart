@@ -3,7 +3,6 @@ import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/image_follow_list_view.dart';
 
-import 'eng_and_usd_row.dart';
 
 class WidgetsHeder extends StatelessWidget {
   const WidgetsHeder({
@@ -22,19 +21,19 @@ class WidgetsHeder extends StatelessWidget {
             style: AppStyles.styleRegular14(context, color: AppColor.kWhite)),
         const ImageFollowUs(),
         const SizedBox(width: 24),
-        Container(
-          width: .8,
-          height: 28,
-          color: Colors.white.withOpacity(.5),
-        ),
-        const SizedBox(width: 24),
-        const EngAndUsdRow(
-          text: 'Eng',
-        ),
-        const SizedBox(width: 24),
-        const EngAndUsdRow(
-          text: 'USD',
-        )
+        // Container(
+        //   width: .8,
+        //   height: 28,
+        //   color: Colors.white.withOpacity(.5),
+        // ),
+        // const SizedBox(width: 24),
+        // const EngAndUsdRow(
+        //   text: 'Eng',
+        // ),
+        // const SizedBox(width: 24),
+        // const EngAndUsdRow(
+        //   text: 'USD',
+        // )
       ],
     );
   }

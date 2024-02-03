@@ -17,7 +17,10 @@ class CustomListTileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: ListTile(
-        leading: SvgPicture.asset(image),
+        leading: SvgPicture.asset(
+          image,
+          height: 26,
+        ),
         title: FittedBox(
           alignment: Alignment.centerLeft,
           fit: BoxFit.scaleDown,

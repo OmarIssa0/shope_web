@@ -101,6 +101,10 @@ class Assets {
   /// assets/images/Logo_orangePNG.png
   static const String imagesLogoOrangePNG = "assets/images/Logo_orangePNG.png";
 
+  /// Assets for imagesLogoPNG
+  /// assets/images/logoPNG.png
+  static const String imagesLogoPNG = "assets/images/logoPNG.png";
+
   /// Assets for imagesMapPinLine
   /// assets/images/MapPinLine.svg
   static const String imagesMapPinLine = "assets/images/MapPinLine.svg";
@@ -148,6 +152,10 @@ class Assets {
   /// Assets for imagesTwitter
   /// assets/images/Twitter.svg
   static const String imagesTwitter = "assets/images/Twitter.svg";
+
+  /// Assets for imagesVector
+  /// assets/images/Vector.svg
+  static const String imagesVector = "assets/images/Vector.svg";
 
   /// Assets for imagesWidget
   /// assets/images/Widget.svg

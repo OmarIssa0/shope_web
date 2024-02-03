@@ -47,6 +47,7 @@ class BoxInfoItemWidgets extends StatelessWidget {
         const SizedBox(width: 24),
         const CustomListTileItem(
             image: Assets.imagesHeadphonesBoxInfo,
+            
             title: 'Support 24/7',
             subTitle: 'Live contact/message'),
       ],

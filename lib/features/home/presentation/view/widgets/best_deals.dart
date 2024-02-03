@@ -10,24 +10,25 @@ class BestDeals extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomExpandedWidgets(
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Best Deals',
               style:
-                  AppStyles.styleSemiBold24(context, color: AppColor.kGray900)),
-          const SizedBox(width: 24),
-          Text('Deals ends in',
-              style:
-                  AppStyles.styleRegular14(context, color: AppColor.kGray400)),
-          const SizedBox(width: 12),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
-            color: AppColor.kWarning300,
-            child: Text(
-              '16d : 21h : 57m : 23s',
-              style:
-                  AppStyles.styleRegular14(context, color: AppColor.kGray900),
-            ),
-          ),
+                  AppStyles.styleSemiBold16(context, color: AppColor.kGray900)),
+          // const SizedBox(width: 24),
+          // Text('Deals ends in',
+          //     style:
+          //         AppStyles.styleRegular14(context, color: AppColor.kGray400)),
+          // const SizedBox(width: 12),
+          // Container(
+          //   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+          //   color: AppColor.kWarning300,
+          //   child: Text(
+          //     '16d : 21h : 57m : 23s',
+          //     style:
+          //         AppStyles.styleRegular14(context, color: AppColor.kGray900),
+          //   ),
+          // ),
           const Expanded(child: SizedBox()),
           Text(
             'Browse All Product',
