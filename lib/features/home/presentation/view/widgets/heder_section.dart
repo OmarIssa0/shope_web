@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/heder_search_view.dart';

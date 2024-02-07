@@ -12,6 +12,7 @@ import 'package:shope_web/features/home/presentation/view/widgets/tablet_layout_
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
+  static String idPage = '/';
 
   @override
   State<HomeView> createState() => _HomeViewState();

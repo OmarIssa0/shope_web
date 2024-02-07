@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
-import 'package:shope_web/core/utils/app_image.dart';
-import 'package:shope_web/core/utils/app_style.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/company_information_footer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_expanded_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/download_app_footer.dart';

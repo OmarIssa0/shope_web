@@ -105,6 +105,30 @@ class Assets {
   /// assets/images/logoPNG.png
   static const String imagesLogoPNG = "assets/images/logoPNG.png";
 
+  /// Assets for imagesMac1
+  /// assets/images/mac_1.png
+  static const String imagesMac1 = "assets/images/mac_1.png";
+
+  /// Assets for imagesMac2
+  /// assets/images/mac_2.png
+  static const String imagesMac2 = "assets/images/mac_2.png";
+
+  /// Assets for imagesMac3png
+  /// assets/images/mac_3png.png
+  static const String imagesMac3png = "assets/images/mac_3png.png";
+
+  /// Assets for imagesMac4png
+  /// assets/images/mac_4png.png
+  static const String imagesMac4png = "assets/images/mac_4png.png";
+
+  /// Assets for imagesMac5
+  /// assets/images/mac_5.png
+  static const String imagesMac5 = "assets/images/mac_5.png";
+
+  /// Assets for imagesMac6
+  /// assets/images/mac_6.png
+  static const String imagesMac6 = "assets/images/mac_6.png";
+
   /// Assets for imagesMapPinLine
   /// assets/images/MapPinLine.svg
   static const String imagesMapPinLine = "assets/images/MapPinLine.svg";

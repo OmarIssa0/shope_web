@@ -26,7 +26,7 @@ class BoxInfoItemWidgets extends StatelessWidget {
         const CustomListTileItem(
             image: Assets.imagesTrophy,
             title: '24 Hours Return',
-            subTitle: '100% money-back guarantee'),
+            subTitle: '100% money-back'),
         // const SizedBox(width: 24),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -47,7 +47,6 @@ class BoxInfoItemWidgets extends StatelessWidget {
         const SizedBox(width: 24),
         const CustomListTileItem(
             image: Assets.imagesHeadphonesBoxInfo,
-            
             title: 'Support 24/7',
             subTitle: 'Live contact/message'),
       ],
