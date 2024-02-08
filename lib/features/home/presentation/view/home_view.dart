@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_image.dart';
 import 'package:shope_web/core/utils/size_config.dart';
+import 'package:shope_web/features/details/presentation/view/widgets/custom_action_app_bar.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/adaptive_layout_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_logo.dart';
@@ -34,27 +34,8 @@ class _HomeViewState extends State<HomeView> {
                   image: Assets.imagesLogoPNG,
                   height: 30,
                   mainAxisAlignment: MainAxisAlignment.start),
-              actions: [
-                Badge(
-                  label: const Text(
-                    '2',
-                    style: TextStyle(color: AppColor.kSecondary700),
-                  ),
-                  backgroundColor: Colors.white,
-                  alignment: const Alignment(.4, -.3),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        IconlyLight.buy,
-                        color: AppColor.kWhite,
-                      )),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      IconlyLight.search,
-                      color: AppColor.kWhite,
-                    )),
+              actions: const [
+                CustomActionAppBar(),
               ],
               backgroundColor: AppColor.kSecondary700,
               automaticallyImplyLeading: false,

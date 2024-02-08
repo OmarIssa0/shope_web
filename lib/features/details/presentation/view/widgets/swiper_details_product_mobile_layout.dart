@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_image.dart';
 
-class SwiperDetailsProductImage extends StatelessWidget {
-  const SwiperDetailsProductImage({super.key});
+class SwiperDetailsProductImageMobileLayout extends StatelessWidget {
+  const SwiperDetailsProductImageMobileLayout({super.key});
 
   static const image = [
     Assets.imagesMac1,
@@ -18,8 +18,10 @@ class SwiperDetailsProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width / 3,
-      height: MediaQuery.sizeOf(context).width / 3,
+      width: MediaQuery.sizeOf(context).width / 1,
+      // width: double.infinity,
+      height: MediaQuery.sizeOf(context).width / 1.5,
+
       // height: 500,
       decoration: BoxDecoration(
           border: Border.all(color: AppColor.kGray100, width: 1),

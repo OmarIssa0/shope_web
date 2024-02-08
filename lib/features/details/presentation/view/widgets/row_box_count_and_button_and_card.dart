@@ -15,12 +15,15 @@ class RowBoxCountAndButtonAddCart extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Row(
-          children: [
-            BoxCount(),
-            SizedBox(width: 16),
-            RowButtonProductDetails(),
-          ],
+        const FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            children: [
+              BoxCount(),
+              SizedBox(width: 16),
+              RowButtonProductDetails(),
+            ],
+          ),
         ),
         const SizedBox(height: 16),
         Row(

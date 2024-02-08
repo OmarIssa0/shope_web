@@ -6,8 +6,10 @@ import 'package:shope_web/features/details/presentation/view/widgets/swiper_deta
 import 'package:shope_web/features/details/presentation/view/widgets/title_and_description.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_expanded_widgets.dart';
 
-class DetailsBodyProductDesktop extends StatelessWidget {
-  const DetailsBodyProductDesktop({super.key});
+class BodyDetailsProductTablet extends StatelessWidget {
+  const BodyDetailsProductTablet({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,10 @@ class DetailsBodyProductDesktop extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // SizedBox(height: 25),
               SwiperDetailsProductImage(),
               SizedBox(height: 35),
               InStockAndBrandBoxProductDetails(),
@@ -31,7 +34,7 @@ class DetailsBodyProductDesktop extends StatelessWidget {
           ),
           SizedBox(width: 25),
           TitleAndDescription(),
-          SizedBox(height: 25),
+          SizedBox(height: 35),
         ],
       ),
     );
