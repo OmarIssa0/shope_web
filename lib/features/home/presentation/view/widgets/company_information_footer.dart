@@ -29,7 +29,7 @@ class CompanyInformationFooter extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          '4517 Washington Ave.\nManchester, Kentucky 39495',
+          '4517 Washington Ave.\nManchester, Kentucky',
           style: AppStyles.styleRegular16(context, color: AppColor.kGray300),
         ),
         const SizedBox(height: 12),

@@ -17,7 +17,7 @@ class CustomItemBrand extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.sizeOf(context).width > SizeConfig.tablet
+      width: MediaQuery.sizeOf(context).width >= SizeConfig.tablet
           ? MediaQuery.sizeOf(context).width / 6
           : MediaQuery.sizeOf(context).width * .4,
       child: Row(

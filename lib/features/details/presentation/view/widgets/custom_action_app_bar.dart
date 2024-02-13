@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shope_web/core/utils/app_color.dart';
+import 'package:shope_web/features/search/presentation/view/search_view.dart';
 
 class CustomActionAppBar extends StatelessWidget {
   const CustomActionAppBar({
@@ -28,7 +27,9 @@ class CustomActionAppBar extends StatelessWidget {
               )),
         ),
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(SearchView.idPage);
+            },
             icon: const Icon(
               IconlyLight.search,
               color: AppColor.kWhite,
