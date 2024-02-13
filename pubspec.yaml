@@ -36,6 +36,7 @@ dependencies:
   flutter_svg: ^2.0.9
   font_awesome_flutter: ^10.6.0
   iconly: ^1.0.1
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -34,7 +34,7 @@ class SwiperDetailsProductImageMobileLayout extends StatelessWidget {
             fit: BoxFit.fill,
           );
         },
-        autoplay: false,
+        autoplay: true,
         pagination: SwiperPagination(
           alignment: Alignment.bottomCenter,
           builder: DotSwiperPaginationBuilder(

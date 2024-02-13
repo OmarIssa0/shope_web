@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shope_web/features/home/presentation/view/widgets/footer_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/heder_section.dart';
-import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 import 'package:shope_web/features/search/presentation/view/widgets/grid_view_search_mobile_layout.dart';
 
 class TabletLayoutSearchView extends StatelessWidget {

@@ -5,6 +5,7 @@ import 'package:shope_web/core/utils/app_image.dart';
 import 'package:shope_web/features/home/presentation/view/home_view.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_logo.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/text_filed_search_home.dart';
+import 'package:shope_web/features/login/presentation/view/login_view.dart';
 
 class WidgetsHederSearchHome extends StatelessWidget {
   const WidgetsHederSearchHome({
@@ -31,8 +32,13 @@ class WidgetsHederSearchHome extends StatelessWidget {
             child: Icon(IconlyLight.buy, color: AppColor.kWhite)),
         const SizedBox(width: 24),
         const Icon(IconlyLight.heart, color: AppColor.kWhite),
-        const SizedBox(width: 24),
-        const Icon(IconlyLight.profile, color: AppColor.kWhite),
+        const SizedBox(width: 12),
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(LoginView.idPage);
+            },
+            icon: const Icon(IconlyLight.profile),
+            color: AppColor.kWhite),
       ],
     );
   }
