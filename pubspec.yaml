@@ -68,10 +68,12 @@ flutter:
   fonts:
     - family: PublicSans
       fonts:
-        - asset: assets\font\PublicSans-Regular.ttf
+        - asset: assets/font/PublicSans-Regular.ttf
+        - asset: assets/font/PublicSans-Bold.ttf
+          weight: 500 
     - family: Inter
       fonts:
-        - asset: assets\font\Inter-Regular.ttf
+        - asset: assets/font/Inter-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_assets:
