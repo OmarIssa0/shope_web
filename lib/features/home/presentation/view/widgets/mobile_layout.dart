@@ -11,7 +11,6 @@ import 'package:shope_web/features/home/presentation/view/widgets/grid_view_prod
 import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/item_best_deals_produt.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/list_view_category.dart';
-import 'package:shope_web/features/home/presentation/view/widgets/pc_accessories.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/tab_bar_category.dart';
 
 class MobileLayoutHomeView extends StatelessWidget {
@@ -34,7 +33,7 @@ class MobileLayoutHomeView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Shop with Categorys',
+              Text('Shop with Category',
                   style: AppStyles.styleSemiBold24(context,
                       color: AppColor.kGray900))
             ],

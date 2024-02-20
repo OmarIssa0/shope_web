@@ -1,32 +1,47 @@
-class ProductModel {
-  final String productId,
-      productTitle,
-      productPrice,
-      productCategory,
-      productDescription,
-      productQuantity;
-  List<String> productImage;
-  String? off, discount;
-  // Timestamp? createdAt;
-  ProductModel({
-    required this.productId,
-    required this.productTitle,
-    required this.productPrice,
-    required this.productCategory,
-    required this.productDescription,
-    required this.productImage,
-    required this.productQuantity,
-    // this.createdAt,
-    this.off,
-    this.discount,
-  });
+import 'package:flutter/material.dart';
+import 'package:shope_web/features/search/presentation/view_model/model/model_product.dart';
 
-  static List<ProductModel> products = [
+class ProductProvider with ChangeNotifier {
+  // final List<ProductModel> _productsList = [];
+  List<ProductModel> get getProduct {
+    return _products;
+  }
+
+  ProductModel? findByProductId(String productId) {
+    if (_products.where((element) => element.productId == productId).isEmpty) {
+      return null;
+    }
+    return _products.firstWhere((element) => element.productId == productId);
+  }
+
+  List<ProductModel> findByCategory({required String catName}) {
+    List<ProductModel> cateList = _products
+        .where((element) => element.productCategory
+            .toLowerCase()
+            .contains(catName.toLowerCase()))
+        .toList();
+    return cateList;
+  }
+
+  List<ProductModel> searchQuery(
+      {required String searchText, required List<ProductModel> passedList}) {
+    List<ProductModel> searchList = _products
+        .where((element) => element.productTitle
+            .toLowerCase()
+            .contains(searchText.toLowerCase()))
+        .toList();
+
+    return searchList;
+  }
+
+  final List<ProductModel> _products = [
     // Phones
     ProductModel(
       //1
+      inStock: false,
+      brand: 'Apple',
       discount: '1900', off: '20%OFF',
-      productId: 'iphone14-128gb-black',
+      productId: 'iphone14',
 
       productTitle: "Apple iPhone 14 Pro (128GB) - Black",
       productPrice: "1399.99",
@@ -41,7 +56,8 @@ class ProductModel {
     ),
     ProductModel(
       //2
-      productId: 'iphone13-mini-256gb-midnight',
+      inStock: true, brand: 'Apple',
+      productId: 'iphone13',
       productTitle:
           "iPhone 13 Mini, 256GB, Midnight - Unlocked (Renewed Premium)",
       productPrice: "659.99",
@@ -56,7 +72,8 @@ class ProductModel {
     ),
     ProductModel(
       //3
-      productId: 'Acheter un iPhone 14',
+      productId: 'iPhone 14',
+      brand: 'Apple',
       productTitle: "iPhone 14",
       productPrice: "1199.99",
       productCategory: "Phones",
@@ -68,19 +85,87 @@ class ProductModel {
       ],
       productQuantity: "144",
     ),
-    // ProductModel(
-    //   //4
-    //   productId: const Uuid().v4(),
-    //   productTitle:
-    //       "Samsung Galaxy S22 Ultra 5G - 256GB - Phantom Black (Unlocked)",
-    //   productPrice: "1199.99",
-    //   productCategory: "Phones",
-    //   productDescription:
-    //       "About this item\n6.8 inch Dynamic AMOLED 2X display with a 3200 x 1440 resolution\n256GB internal storage, 12GB RAM\n108MP triple camera system with 100x Space Zoom and laser autofocus\n40MP front-facing camera with dual pixel AF\n5000mAh battery with fast wireless charging and wireless power share\n5G capable for lightning fast download and streaming",
-    //   productImage:
-    //       "https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp",
-    //   productQuantity: "2363",
-    // ),
+    ProductModel(
+      //4
+      productId: 'Samsung Galaxy',
+      brand: 'Samsung',
+      productTitle:
+          "Samsung Galaxy S22 Ultra 5G - 256GB - Phantom Black (Unlocked)",
+      productPrice: "1199.99",
+      productCategory: "Phones",
+      productDescription:
+          "About this item\n6.8 inch Dynamic AMOLED 2X display with a 3200 x 1440 resolution\n256GB internal storage, 12GB RAM\n108MP triple camera system with 100x Space Zoom and laser autofocus\n40MP front-facing camera with dual pixel AF\n5000mAh battery with fast wireless charging and wireless power share\n5G capable for lightning fast download and streaming",
+      productImage: [
+        "https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp",
+        'https://i.ibb.co/ww5WjkV/5-Samsung-Galaxy-S21-Ultra-5-G.png'
+      ],
+      productQuantity: "2363",
+    ),
+    ProductModel(
+      //1
+      inStock: false,
+      brand: 'Apple',
+      discount: '1900', off: '20%OFF',
+      productId: 'iphone14',
+
+      productTitle: "Apple iPhone 14 Pro (128GB) - Black",
+      productPrice: "1399.99",
+      productCategory: "Phones",
+      productDescription:
+          "6.1-inch Super Retina XDR display with ProMotion and always-on display. Dynamic Island, a new and magical way to interact with your iPhone. 48MP main camera for up to 4x higher resolution. Cinematic mode, now in 4K Dolby Vision up to 30 fps. Action mode, for stable and smooth videos when you're on the move. Accident detection, vital safety technology that calls for help for you. All-day battery life and up to 23 hours of video playback.",
+      productImage: [
+        "https://i.ibb.co/BtMBSgK/1-iphone14-128gb-black.webp",
+        'https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp'
+      ],
+      productQuantity: "10",
+    ),
+    ProductModel(
+      //2
+      inStock: true, brand: 'Apple',
+      productId: 'iphone13',
+      productTitle:
+          "iPhone 13 Mini, 256GB, Midnight - Unlocked (Renewed Premium)",
+      productPrice: "659.99",
+      productCategory: "Phones",
+      productDescription:
+          "5.4 Super Retina XDR display. 5G Superfast downloads, high quality streaming. Cinematic mode in 1080p at 30 fps. Dolby Vision HDR video recording up to 4K at 60 fps. 2X Optical zoom range. A15 Bionic chip. New 6-core CPU with 2 performance and 4 efficiency cores. New 4-core GPU. New 16-core Neural Engine. Up to 17 hours video playback. Face ID. Ceramic Shield front. Aerospace-grade aluminum. Water resistant to a depth of 6 meters for up to 30 minutes. Compatible with MagSafe accessories and wireless chargers.",
+      productImage: [
+        "https://i.ibb.co/nbwTvXQ/2-iphone13-mini-256gb-midnight.webp",
+        'https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp'
+      ],
+      productQuantity: "15",
+    ),
+    ProductModel(
+      //3
+      productId: 'iPhone 14',
+      brand: 'Apple',
+      productTitle: "iPhone 14",
+      productPrice: "1199.99",
+      productCategory: "Phones",
+      productDescription:
+          "Les détails concernant la livraison dans votre région s’afficheront sur la page de validation de la commande.",
+      productImage: [
+        "https://i.ibb.co/G7nXCW4/3-i-Phone-14.jpg",
+        'https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp'
+      ],
+      productQuantity: "144",
+    ),
+    ProductModel(
+      //4
+      productId: 'Samsung Galaxy',
+      brand: 'Samsung',
+      productTitle:
+          "Samsung Galaxy S22 Ultra 5G - 256GB - Phantom Black (Unlocked)",
+      productPrice: "1199.99",
+      productCategory: "Phones",
+      productDescription:
+          "About this item\n6.8 inch Dynamic AMOLED 2X display with a 3200 x 1440 resolution\n256GB internal storage, 12GB RAM\n108MP triple camera system with 100x Space Zoom and laser autofocus\n40MP front-facing camera with dual pixel AF\n5000mAh battery with fast wireless charging and wireless power share\n5G capable for lightning fast download and streaming",
+      productImage: [
+        "https://i.ibb.co/z5zMDCx/4-Samsung-Galaxy-S22-Ultra-5-G-256-GB-Phantom-Black-Unlocked.webp",
+        'https://i.ibb.co/ww5WjkV/5-Samsung-Galaxy-S21-Ultra-5-G.png'
+      ],
+      productQuantity: "2363",
+    ),
     // ProductModel(
     //   //5
     //   productId: const Uuid().v4(),

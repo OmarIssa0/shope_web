@@ -6,8 +6,7 @@ import 'package:shope_web/features/details/presentation/view/widgets/custom_acti
 import 'package:shope_web/features/home/presentation/view/widgets/adaptive_layout_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_logo.dart';
-import 'package:shope_web/features/search/presentation/view/widgets/mobile_layuot_search_view.dart';
-import 'package:shope_web/features/search/presentation/view/widgets/tablet_layout_search_view.dart';
+import 'package:shope_web/features/search/presentation/view/widgets/grid_view_search_mobile_layout.dart';
 
 class SearchView extends StatefulWidget {
   static const idPage = '/SearchView';
@@ -47,9 +46,9 @@ class _SearchViewState extends State<SearchView> {
           : null,
       backgroundColor: AppColor.kWhite,
       body: AdaptiveLayout(
-        desktopLayout: (context) => const TabletLayoutSearchView(),
-        tabletLayout: (context) => const TabletLayoutSearchView(),
-        mobileLayout: (context) => const MobileLayoutSearchView(),
+        desktopLayout: (context) => const CustomGridViewSearchView(),
+        tabletLayout: (context) => const CustomGridViewSearchView(),
+        mobileLayout: (context) => const CustomGridViewSearchView(),
       ),
     );
   }

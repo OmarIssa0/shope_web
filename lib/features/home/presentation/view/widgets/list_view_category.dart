@@ -12,7 +12,7 @@ class ListCategoryItem extends StatelessWidget {
     ItemCategoryModel(
         image: Assets.imagesCategotyPcPNG, titleCategory: 'Computer & Laptop'),
     ItemCategoryModel(
-        image: Assets.imagesCategotyPhonePNG, titleCategory: 'SmartPhone'),
+        image: Assets.imagesCategotyPhonePNG, titleCategory: 'Phone'),
     ItemCategoryModel(
         image: Assets.imagesCategotyHeadPhonePNG, titleCategory: 'Headphones'),
     ItemCategoryModel(
