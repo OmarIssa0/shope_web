@@ -25,7 +25,7 @@ class _RowSignInAndSignUpState extends State<RowSignInAndSignUp> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(4),
-      elevation: 100,
+      elevation: 10,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 900),
         height: indexBar == 0 ? 555 : 800,
@@ -113,7 +113,7 @@ class _RowSignInAndSignUpState extends State<RowSignInAndSignUp> {
             Expanded(
               child: PageView(
                 controller: controller,
-                physics: const NeverScrollableScrollPhysics(),
+                // physics: const PageScrollPhysics(),
                 children: [
                   indexBar == 0
                       ? const SignInTabBarLoginView()

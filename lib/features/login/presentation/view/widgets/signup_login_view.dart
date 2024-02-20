@@ -9,7 +9,7 @@ class SignUpLoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(bottom: 32, left: 32, right: 32, top: 24),
+      padding: EdgeInsets.only(bottom: 0, left: 32, right: 32, top: 24),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -18,6 +18,7 @@ class SignUpLoginView extends StatelessWidget {
             RowDivider(),
             SizedBox(height: 12),
             CustomButtonGoogleLogin(),
+            SizedBox(height: 12),
           ],
         ),
       ),

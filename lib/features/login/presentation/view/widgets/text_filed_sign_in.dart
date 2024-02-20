@@ -3,6 +3,7 @@ import 'package:iconly/iconly.dart';
 import 'package:shope_web/core/constant/my_validators.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
+import 'package:shope_web/features/login/presentation/view/forgot_password_view.dart';
 import 'package:shope_web/features/login/presentation/view/widgets/custom_login_button.dart';
 
 class TextFiledSignIn extends StatefulWidget {
@@ -94,10 +95,20 @@ class _TextFiledSignInState extends State<TextFiledSignIn> {
                 style:
                     AppStyles.styleRegular14(context, color: AppColor.kGray900),
               ),
-              Text(
-                'Forget Password',
-                style: AppStyles.styleMedium14(context,
-                    color: AppColor.kSecondary500),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordView(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Forget Password',
+                  style: AppStyles.styleMedium14(context,
+                      color: AppColor.kSecondary500),
+                ),
               ),
             ],
           ),

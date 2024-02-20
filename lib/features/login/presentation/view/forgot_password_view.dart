@@ -3,19 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/adaptive_layout_widgets.dart';
-import 'package:shope_web/features/login/presentation/view/widgets/login_view_desktop_layout.dart';
-import 'package:shope_web/features/login/presentation/view/widgets/row_signin_and_signUp.dart';
-import 'package:shope_web/features/login/presentation/view/widgets/tablet_layuot_login_view.dart';
+import 'package:shope_web/features/login/presentation/view/widgets/desktop_forget_password.dart';
+import 'package:shope_web/features/login/presentation/view/widgets/forget_password_view.dart';
 
-class LoginView extends StatefulWidget {
-  static const idPage = '/LoginView';
-  const LoginView({super.key});
+class ForgotPasswordView extends StatefulWidget {
+  static const idPage = '/ForgotPasswordView';
+  const ForgotPasswordView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  // ignore: library_private_types_in_public_api
+  _ForgotPasswordViewState createState() => _ForgotPasswordViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _ForgotPasswordViewState extends State<ForgotPasswordView>
+    with TickerProviderStateMixin {
   List<Color> colorList = [
     AppColor.kPrimary500,
     AppColor.kPrimary200,
@@ -50,13 +51,9 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: MediaQuery.sizeOf(context).width < SizeConfig.tablet
-      //     ? AppColor.kPrimary500
-      //     : Colors.white,
-      backgroundColor: Colors.white,
       body: AdaptiveLayout(
-        desktopLayout: (context) => const LoginViewDesktopLayout(),
-        tabletLayout: (context) => const TabletLayoutLoginView(),
+        desktopLayout: (context) => const ForgetPasswordDesktopLayout(),
+        tabletLayout: (context) => const ForgetPasswordDesktopLayout(),
         mobileLayout: (context) => Stack(
           alignment: Alignment.center,
           children: [
@@ -100,10 +97,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 75, left: 12, right: 12),
-              child: RowSignInAndSignUp(),
-            ),
+            const BodyForgetPasswordView(),
           ],
         ),
       ),

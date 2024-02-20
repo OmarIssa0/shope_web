@@ -89,7 +89,7 @@ class _TextFiledSignUpState extends State<TextFiledSignUp> {
             cursorColor: AppColor.kPrimary500,
             decoration: InputDecoration(
               // focusColor: ,
-              hoverColor: AppColor.kDanger700,
+              // hoverColor: AppColor.kDanger700,
               hintStyle:
                   AppStyles.styleRegular16(context, color: AppColor.kGray500),
               border: buildBorder(),
