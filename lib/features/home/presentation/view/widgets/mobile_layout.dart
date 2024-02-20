@@ -5,10 +5,14 @@ import 'package:shope_web/features/details/presentation/view/widgets/mobile_foot
 import 'package:shope_web/features/home/presentation/view/widgets/best_deals.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/cart_swiper.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_box_info_mobile_layout.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/custom_expanded_widgets.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/featured_product.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/grid_view_product.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/item_best_deals_produt.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/list_view_category.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/pc_accessories.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/tab_bar_category.dart';
 
 class MobileLayoutHomeView extends StatelessWidget {
   const MobileLayoutHomeView({super.key});
@@ -40,8 +44,16 @@ class MobileLayoutHomeView extends StatelessWidget {
           const ListCategoryItem(),
           const SizedBox(height: 72),
           const FeaturedProductWidgets(),
-          const SizedBox(height: 40),
+          const SizedBox(height: 12),
           const CartSwiper(),
+          const SizedBox(height: 32),
+          // const ComputerAccessoriesSection(),
+          const CustomExpandedWidgets(
+            child: TabBarCategoryWidgets(
+                text: 'Computer Accessories', isShow: false),
+          ),
+          const SizedBox(height: 16),
+          const ListProductToo(),
           const SizedBox(height: 70),
           const MobileFooterLayout(),
           const InfoDevFooter()

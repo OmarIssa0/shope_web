@@ -15,6 +15,7 @@ class ComputerAccessoriesSection extends StatelessWidget {
       children: [
         CustomExpandedWidgets(
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TabBarCategoryWidgets(

@@ -28,7 +28,7 @@ class FeaturedProductWidgets extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TabBarCategoryWidgets(
-                      text: 'Featured Products', isShow: true),
+                      text: 'Featured Products', isShow: false),
                   ColumnAndRowProduct(),
                 ],
               )

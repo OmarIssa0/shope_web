@@ -10,6 +10,7 @@ import 'package:shope_web/features/home/presentation/view/widgets/heder_section.
 import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/item_best_deals_produt.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/list_view_category.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/pc_accessories.dart';
 
 class TabletLayoutHomeView extends StatelessWidget {
   const TabletLayoutHomeView({super.key});
@@ -48,9 +49,12 @@ class TabletLayoutHomeView extends StatelessWidget {
           const FeaturedProductWidgets(),
           const SizedBox(height: 40),
           const CartSwiper(),
-          const SizedBox(height: 70),
+          // const SizedBox(height: 70),
           // const ImageMacBook(),
+          const SizedBox(height: 32),
+          const ComputerAccessoriesSection(),
           const SizedBox(height: 72),
+          //
           const FooterWidgets(),
           const InfoDevFooter(),
         ],

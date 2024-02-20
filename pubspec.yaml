@@ -36,6 +36,7 @@ dependencies:
   flutter_svg: ^2.0.9
   font_awesome_flutter: ^10.6.0
   iconly: ^1.0.1
+  provider: ^6.1.1
   uuid: ^4.3.3
 
 dev_dependencies:
@@ -70,7 +71,7 @@ flutter:
       fonts:
         - asset: assets/font/PublicSans-Regular.ttf
         - asset: assets/font/PublicSans-Bold.ttf
-          weight: 500 
+          weight: 500
     - family: Inter
       fonts:
         - asset: assets/font/Inter-Regular.ttf
