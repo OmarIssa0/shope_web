@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/features/search/presentation/view_model/model/model_product.dart';
+import 'package:uuid/uuid.dart';
 
 class ProductProvider with ChangeNotifier {
   // final List<ProductModel> _productsList = [];
@@ -25,7 +26,7 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> searchQuery(
       {required String searchText, required List<ProductModel> passedList}) {
-    List<ProductModel> searchList = _products
+    List<ProductModel> searchList = passedList
         .where((element) => element.productTitle
             .toLowerCase()
             .contains(searchText.toLowerCase()))
@@ -307,17 +308,17 @@ class ProductProvider with ChangeNotifier {
     //   productImage: "https://i.ibb.co/8cNwrbJ/16-Apple-Watch-Series-7.png",
     //   productQuantity: "535352",
     // ),
-    // ProductModel(
-    //   //17
-    //   productId: const Uuid().v4(),
-    //   productTitle: "Samsung Galaxy Watch 4",
-    //   productPrice: "249.99",
-    //   productCategory: "Watches",
-    //   productDescription:
-    //       "About this item\nTake your fitness to the next level with advanced sensors that track your body composition, heart rate, sleep quality, and more.\nThe watch automatically detects and tracks over 90 different exercises, from running and cycling to swimming and rowing.\nGalaxy Watch 4 lets you control your smart home devices right from your wrist, so you can turn off the lights, adjust the thermostat, and more.\nThe watch comes with a choice of watch faces, so you can customize it to match your style.",
-    //   productImage: "https://i.ibb.co/tsq0VD8/17-Samsung-Galaxy-Watch-4.png",
-    //   productQuantity: "252",
-    // ),
+    ProductModel(
+      //17
+      productId: const Uuid().v4(),
+      productTitle: "Samsung Galaxy Watch 4",
+      productPrice: "249.99",
+      productCategory: "TV & Homes",
+      productDescription:
+          "About this item\nTake your fitness to the next level with advanced sensors that track your body composition, heart rate, sleep quality, and more.\nThe watch automatically detects and tracks over 90 different exercises, from running and cycling to swimming and rowing.\nGalaxy Watch 4 lets you control your smart home devices right from your wrist, so you can turn off the lights, adjust the thermostat, and more.\nThe watch comes with a choice of watch faces, so you can customize it to match your style.",
+      productImage: ["https://i.ibb.co/tsq0VD8/17-Samsung-Galaxy-Watch-4.png"],
+      productQuantity: "252", brand: 'Samsung',
+    ),
     // ProductModel(
     //   //18
     //   productId: const Uuid().v4(),

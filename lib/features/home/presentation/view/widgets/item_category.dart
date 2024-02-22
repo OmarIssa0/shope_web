@@ -28,7 +28,7 @@ class ItemCategory extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Flexible(child: Image.asset(itemCategoryModel.image)),
+              Flexible(child: Image.asset(itemCategoryModel.image ?? '')),
               const SizedBox(height: 16),
               Text(
                 itemCategoryModel.titleCategory,

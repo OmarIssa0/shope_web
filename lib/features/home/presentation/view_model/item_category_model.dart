@@ -1,5 +1,9 @@
 class ItemCategoryModel {
-  final String image, titleCategory;
+  final String titleCategory;
+  final String? image;
 
-  const ItemCategoryModel({required this.image, required this.titleCategory});
+  const ItemCategoryModel({
+    required this.titleCategory,
+    this.image,
+  });
 }

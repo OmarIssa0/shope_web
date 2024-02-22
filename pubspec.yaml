@@ -71,6 +71,8 @@ flutter:
       fonts:
         - asset: assets/font/PublicSans-Regular.ttf
         - asset: assets/font/PublicSans-Bold.ttf
+          weight: 700
+        - asset: assets/font/PublicSans-Medium.ttf
           weight: 500
     - family: Inter
       fonts:

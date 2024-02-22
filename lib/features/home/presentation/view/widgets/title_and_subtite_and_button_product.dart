@@ -60,11 +60,14 @@ class TitleAndSubtitleAndButtonProduct extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'Games built using the Xbox Series X|S development kit showcase unparalleled load times, visuals.',
-            maxLines: 3,
+            'Games built using the Xbox Series X|S development kit showcase unparalleled load times, visuals.' *
+                2,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: AppStyles.styleRegular14(context, color: AppColor.kGray600),
           ),
           const SizedBox(height: 18),
+          const Spacer(),
           const RowButtonItem(),
         ],
       ),

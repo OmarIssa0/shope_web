@@ -3,7 +3,9 @@ import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
 
 class BoxCount extends StatefulWidget {
-  const BoxCount({super.key});
+  const BoxCount({super.key, this.padding, this.wight});
+
+  final double? padding, wight;
 
   @override
   State<BoxCount> createState() => _BoxCountState();
@@ -16,7 +18,8 @@ class _BoxCountState extends State<BoxCount> {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: EdgeInsets.symmetric(
+              horizontal: widget.padding ?? 20, vertical: widget.padding ?? 16),
           decoration: BoxDecoration(
             border: Border.all(color: AppColor.kGray100, width: 2),
             borderRadius: BorderRadius.circular(10),
@@ -40,13 +43,13 @@ class _BoxCountState extends State<BoxCount> {
                   size: 16,
                 ),
               ),
-              const SizedBox(width: 24),
+              SizedBox(width: widget.wight ?? 24),
               Text(
                 count.toString(),
                 style:
                     AppStyles.styleRegular16(context, color: AppColor.kGray700),
               ),
-              const SizedBox(width: 24),
+              SizedBox(width: widget.wight ?? 24),
               GestureDetector(
                 onTap: () {
                   count++;

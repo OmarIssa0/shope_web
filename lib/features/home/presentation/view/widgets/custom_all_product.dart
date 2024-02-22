@@ -6,7 +6,10 @@ import 'package:shope_web/features/search/presentation/view/search_view.dart';
 class CustomAllProduct extends StatelessWidget {
   const CustomAllProduct({
     super.key,
+    this.color,
   });
+
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,11 @@ class CustomAllProduct extends StatelessWidget {
         children: [
           Text(
             'Browse All Product',
-            style:
-                AppStyles.styleSemiBold14(context, color: AppColor.kPrimary500),
+            style: AppStyles.styleSemiBold14(context,
+                color: color ?? AppColor.kPrimary500),
           ),
           const SizedBox(width: 8),
-          const Icon(Icons.arrow_forward, color: AppColor.kPrimary500)
+          Icon(Icons.arrow_forward, color: color ?? AppColor.kPrimary500)
         ],
       ),
     );
