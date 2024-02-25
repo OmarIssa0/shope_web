@@ -1,51 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
-import 'package:shope_web/features/home/presentation/view_model/item_product_model.dart';
+import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 
 class Item extends StatelessWidget {
   const Item({
     super.key,
-    required this.itemProductModel,
+    required this.productId,
   });
 
-  final ItemProductModel itemProductModel;
+  final String productId;
 
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<ProductProvider>(context);
+    final getCurrProduct = productProvider.findByProductId(productId);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(itemProductModel.image, height: 180, width: 216),
+        Image.network(getCurrProduct!.productImage.first,
+            height: 180, width: 216),
         const SizedBox(height: 3),
         Text(
-          itemProductModel.title,
+          getCurrProduct.productTitle,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: AppStyles.styleRegular14(context, color: AppColor.kGray900),
         ),
         const SizedBox(height: 5),
-        itemProductModel.isActive
+        getCurrProduct.discount != null
             ? Row(
                 children: [
                   Text(
-                    itemProductModel.discount,
+                    '\$${getCurrProduct.productPrice}',
+                    style: AppStyles.styleSemiBold14(context,
+                        color: AppColor.kSecondary500),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    '\$${getCurrProduct.discount}',
                     style: AppStyles.styleRegular14(context,
                             color: AppColor.kGray300)
                         .copyWith(
                       decoration: TextDecoration.lineThrough,
                     ),
                   ),
-                  const SizedBox(width: 4),
-                  Text(
-                    itemProductModel.amount,
-                    style: AppStyles.styleSemiBold14(context,
-                        color: AppColor.kSecondary500),
-                  ),
                 ],
               )
             : Text(
-                itemProductModel.amount,
+                '\$${getCurrProduct.productPrice}',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleSemiBold14(context,

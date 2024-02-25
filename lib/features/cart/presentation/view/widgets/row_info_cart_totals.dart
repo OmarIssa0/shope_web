@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
-import 'package:shope_web/features/cart/presentation/view_model/row_info_cart_totals_model.dart';
+import 'package:shope_web/features/cart/presentation/view_model/model/row_info_cart_totals_model.dart';
 
 class RowInfoCartTotals extends StatelessWidget {
   const RowInfoCartTotals({super.key, required this.rowInfoCartTotalsModel});

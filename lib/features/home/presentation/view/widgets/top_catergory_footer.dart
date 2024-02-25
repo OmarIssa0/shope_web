@@ -11,12 +11,12 @@ class TopCategoryFooter extends StatelessWidget {
   });
 
   static List item = [
-    const ItemCategoryModel(titleCategory: 'Computer & Laptop'),
-    const ItemCategoryModel(titleCategory: 'Phone'),
+    const ItemCategoryModel(titleCategory: 'pc & Laptop'),
+    const ItemCategoryModel(titleCategory: 'SmartPhone'),
     const ItemCategoryModel(titleCategory: 'Headphone'),
   ];
   static List itemToo = [
-    const ItemCategoryModel(titleCategory: 'Computer & Laptop'),
+    const ItemCategoryModel(titleCategory: 'Camera & Photo'),
     const ItemCategoryModel(titleCategory: 'TV & Homes'),
   ];
 

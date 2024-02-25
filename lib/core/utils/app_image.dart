@@ -109,6 +109,10 @@ class Assets {
   /// assets/images/logoPNG.png
   static const String imagesLogoPNG = "assets/images/logoPNG.png";
 
+  /// Assets for imagesLottileCartIsEmpty
+  /// assets/images/lottile/cart_is_empty.json
+  static const String imagesLottileCartIsEmpty = "assets/images/lottile/cart_is_empty.json";
+
   /// Assets for imagesMac1
   /// assets/images/mac_1.png
   static const String imagesMac1 = "assets/images/mac_1.png";

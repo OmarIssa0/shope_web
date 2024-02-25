@@ -10,9 +10,9 @@ class ListCategoryItem extends StatelessWidget {
 
   static const items = [
     ItemCategoryModel(
-        image: Assets.imagesCategotyPcPNG, titleCategory: 'Computer & Laptop'),
+        image: Assets.imagesCategotyPcPNG, titleCategory: 'pc & Laptop'),
     ItemCategoryModel(
-        image: Assets.imagesCategotyPhonePNG, titleCategory: 'Phone'),
+        image: Assets.imagesCategotyPhonePNG, titleCategory: 'SmartPhone'),
     ItemCategoryModel(
         image: Assets.imagesCategotyHeadPhonePNG, titleCategory: 'Headphones'),
     ItemCategoryModel(

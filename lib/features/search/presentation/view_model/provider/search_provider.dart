@@ -42,10 +42,10 @@ class ProductProvider with ChangeNotifier {
       inStock: false,
       brand: 'Apple',
       discount: '1900', off: '20%OFF',
-      productId: 'iphone14',
+      productId: const Uuid().v4(),
 
       productTitle: "Apple iPhone 14 Pro (128GB) - Black",
-      productPrice: "1399.99",
+      productPrice: "1000.99",
       productCategory: "Phones",
       productDescription:
           "6.1-inch Super Retina XDR display with ProMotion and always-on display. Dynamic Island, a new and magical way to interact with your iPhone. 48MP main camera for up to 4x higher resolution. Cinematic mode, now in 4K Dolby Vision up to 30 fps. Action mode, for stable and smooth videos when you're on the move. Accident detection, vital safety technology that calls for help for you. All-day battery life and up to 23 hours of video playback.",
@@ -58,7 +58,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       //2
       inStock: true, brand: 'Apple',
-      productId: 'iphone13',
+      productId: const Uuid().v4(),
       productTitle:
           "iPhone 13 Mini, 256GB, Midnight - Unlocked (Renewed Premium)",
       productPrice: "659.99",
@@ -73,7 +73,7 @@ class ProductProvider with ChangeNotifier {
     ),
     ProductModel(
       //3
-      productId: 'iPhone 14',
+      productId: const Uuid().v4(),
       brand: 'Apple',
       productTitle: "iPhone 14",
       productPrice: "1199.99",
@@ -88,7 +88,7 @@ class ProductProvider with ChangeNotifier {
     ),
     ProductModel(
       //4
-      productId: 'Samsung Galaxy',
+      productId: const Uuid().v4(),
       brand: 'Samsung',
       productTitle:
           "Samsung Galaxy S22 Ultra 5G - 256GB - Phantom Black (Unlocked)",
@@ -107,7 +107,7 @@ class ProductProvider with ChangeNotifier {
       inStock: false,
       brand: 'Apple',
       discount: '1900', off: '20%OFF',
-      productId: 'iphone14',
+      productId: const Uuid().v4(),
 
       productTitle: "Apple iPhone 14 Pro (128GB) - Black",
       productPrice: "1399.99",
@@ -123,7 +123,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       //2
       inStock: true, brand: 'Apple',
-      productId: 'iphone13',
+      productId: const Uuid().v4(),
       productTitle:
           "iPhone 13 Mini, 256GB, Midnight - Unlocked (Renewed Premium)",
       productPrice: "659.99",
@@ -140,7 +140,7 @@ class ProductProvider with ChangeNotifier {
       //3
       productId: 'iPhone 14',
       brand: 'Apple',
-      productTitle: "iPhone 14",
+      productTitle: const Uuid().v4(),
       productPrice: "1199.99",
       productCategory: "Phones",
       productDescription:
@@ -153,7 +153,7 @@ class ProductProvider with ChangeNotifier {
     ),
     ProductModel(
       //4
-      productId: 'Samsung Galaxy',
+      productId: const Uuid().v4(),
       brand: 'Samsung',
       productTitle:
           "Samsung Galaxy S22 Ultra 5G - 256GB - Phantom Black (Unlocked)",
@@ -311,6 +311,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       //17
       productId: const Uuid().v4(),
+      inStock: true,
       productTitle: "Samsung Galaxy Watch 4",
       productPrice: "249.99",
       productCategory: "TV & Homes",
@@ -319,6 +320,17 @@ class ProductProvider with ChangeNotifier {
       productImage: ["https://i.ibb.co/tsq0VD8/17-Samsung-Galaxy-Watch-4.png"],
       productQuantity: "252", brand: 'Samsung',
     ),
+    // ProductModel(
+    //   //17
+    //   productId: const Uuid().v4(),
+    //   productTitle: "Samsung Galaxy Watch 4",
+    //   productPrice: "249.99",
+    //   productCategory: "TV & Homes",
+    //   productDescription:
+    //       "About this item\nTake your fitness to the next level with advanced sensors that track your body composition, heart rate, sleep quality, and more.\nThe watch automatically detects and tracks over 90 different exercises, from running and cycling to swimming and rowing.\nGalaxy Watch 4 lets you control your smart home devices right from your wrist, so you can turn off the lights, adjust the thermostat, and more.\nThe watch comes with a choice of watch faces, so you can customize it to match your style.",
+    //   productImage: ["https://i.ibb.co/tsq0VD8/17-Samsung-Galaxy-Watch-4.png"],
+    //   productQuantity: "252", brand: 'Samsung',
+    // ),
     // ProductModel(
     //   //18
     //   productId: const Uuid().v4(),

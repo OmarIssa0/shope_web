@@ -3,7 +3,9 @@ import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
+import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
 import 'package:shope_web/features/details/presentation/view/details_view.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/sold_out.dart';
 import 'package:shope_web/features/search/presentation/view_model/model/model_product.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 
@@ -18,6 +20,7 @@ class ItemProductSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductProvider>(context);
     final getCurrProduct = productProvider.findByProductId(productId);
+    final cartProvider = Provider.of<CartProvider>(context);
 
     return getCurrProduct == null
         ? const SizedBox.shrink()
@@ -66,30 +69,36 @@ class ItemProductSearch extends StatelessWidget {
                             color: AppColor.kGray600),
                       ),
                       const SizedBox(height: 15),
-                      Image.network(
-                        getCurrProduct.productImage.first,
-                        // Assets.imagesIphone,
-                        // fit: BoxFit.fill,
-                        width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * .2,
+                      Hero(
+                        tag: getCurrProduct.productId,
+                        child: Image.network(
+                          getCurrProduct.productImage.first,
+                          // Assets.imagesIphone,
+                          // fit: BoxFit.fill,
+                          width: double.infinity,
+                          height: MediaQuery.sizeOf(context).height * .2,
+                        ),
                       ),
                       Divider(color: Colors.grey.shade100),
                       Row(
                         children: [
                           Text(
-                            getCurrProduct.productPrice,
+                            '\$${getCurrProduct.productPrice}',
                             // r'$1699',
                             style: AppStyles.styleSemiBold18(context,
                                 color: AppColor.kSecondary500),
                           ),
                           const SizedBox(width: 5),
-                          Text(
-                            getCurrProduct.discount ?? '',
-                            style: AppStyles.styleRegular14(context,
-                                    color: AppColor.kGray500)
-                                .copyWith(
-                                    decoration: TextDecoration.lineThrough),
-                          ),
+                          getCurrProduct.off == null
+                              ? const SizedBox.shrink()
+                              : Text(
+                                  '\$${getCurrProduct.discount}',
+                                  style: AppStyles.styleRegular14(context,
+                                          color: AppColor.kGray500)
+                                      .copyWith(
+                                          decoration:
+                                              TextDecoration.lineThrough),
+                                ),
                           const SizedBox(width: 13),
                           getCurrProduct.off == null
                               ? const SizedBox.shrink()
@@ -106,48 +115,96 @@ class ItemProductSearch extends StatelessWidget {
                                         color: AppColor.kGray900),
                                   ),
                                 ),
+                          const Spacer(),
+                          getCurrProduct.inStock == true
+                              ? const SoldOutWidgets()
+                              : const SizedBox.shrink(),
                         ],
                       ),
                       Divider(color: Colors.grey.shade100),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            InkWell(
-                              onTap: () {},
-                              child: Row(
-                                children: [
-                                  const Icon(IconlyLight.buy,
-                                      color: AppColor.kGray600),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    'Add to card',
-                                    style: AppStyles.styleMedium18(context,
-                                        color: AppColor.kGray600),
-                                  ),
-                                ],
+                            Expanded(
+                              child: InkWell(
+                                onTap: () {
+                                  if (getCurrProduct.inStock == true) {
+                                    return;
+                                  }
+                                  if (cartProvider.isProductInCart(
+                                      productId: getCurrProduct.productId)) {
+                                    return;
+                                  }
+                                  cartProvider.addProductToCart(
+                                      productId: getCurrProduct.productId);
+                                },
+                                child: getCurrProduct.inStock == true
+                                    ? Row(
+                                        children: [
+                                          Text(
+                                            'Sold out',
+                                            style: AppStyles.styleMedium16(
+                                                    context,
+                                                    color: AppColor.kGray600)
+                                                .copyWith(
+                                                    decoration: TextDecoration
+                                                        .lineThrough),
+                                          ),
+                                        ],
+                                      )
+                                    : cartProvider.isProductInCart(
+                                            productId: getCurrProduct.productId)
+                                        ? Row(
+                                            children: [
+                                              const Icon(Icons.check,
+                                                  color: AppColor.kGray600),
+                                              const SizedBox(width: 12),
+                                              Text(
+                                                'In Cart',
+                                                style: AppStyles.styleMedium16(
+                                                    context,
+                                                    color: AppColor.kGray600),
+                                              ),
+                                            ],
+                                          )
+                                        : Row(
+                                            children: [
+                                              const Icon(IconlyLight.buy,
+                                                  color: AppColor.kGray600),
+                                              const SizedBox(width: 10),
+                                              Text(
+                                                'Add to card',
+                                                style: AppStyles.styleMedium18(
+                                                    context,
+                                                    color: AppColor.kGray600),
+                                              ),
+                                            ],
+                                          ),
                               ),
                             ),
                             Container(
                               height: 35,
                               decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: AppColor.kGray600, width: .1)),
+                                      color: AppColor.kGray300, width: .1)),
                             ),
-                            InkWell(
-                              onTap: () {},
-                              child: Row(
-                                children: [
-                                  const Icon(IconlyLight.heart,
-                                      color: AppColor.kGray600),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    'Add to wishlist',
-                                    style: AppStyles.styleMedium18(context,
+                            const SizedBox(width: 25),
+                            Expanded(
+                              child: InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  children: [
+                                    const Icon(IconlyLight.heart,
                                         color: AppColor.kGray600),
-                                  ),
-                                ],
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      'Add to wishlist',
+                                      style: AppStyles.styleMedium18(context,
+                                          color: AppColor.kGray600),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

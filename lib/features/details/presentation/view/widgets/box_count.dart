@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
-
-class BoxCount extends StatefulWidget {
-  const BoxCount({super.key, this.padding, this.wight});
+class BoxCount extends StatelessWidget {
+  const BoxCount(
+      {super.key,
+      this.padding,
+      this.wight,
+      required this.onTap,
+      required this.onTapToo,
+      required this.data});
 
   final double? padding, wight;
 
-  @override
-  State<BoxCount> createState() => _BoxCountState();
-}
+  final Function onTap, onTapToo;
+  final String data;
 
-class _BoxCountState extends State<BoxCount> {
-  int count = 01;
   @override
   Widget build(BuildContext context) {
+   
     return Row(
       children: [
         Container(
           padding: EdgeInsets.symmetric(
-              horizontal: widget.padding ?? 20, vertical: widget.padding ?? 16),
+              horizontal: padding ?? 20, vertical: padding ?? 16),
           decoration: BoxDecoration(
             border: Border.all(color: AppColor.kGray100, width: 2),
             borderRadius: BorderRadius.circular(10),
@@ -30,12 +33,11 @@ class _BoxCountState extends State<BoxCount> {
             children: [
               GestureDetector(
                 onTap: () {
-                  if (count == 1) {
-                    return;
-                  } else {
-                    count--;
-                  }
-                  setState(() {});
+                  onTap();
+                  // cartProvider.updateQuantity(
+                  //     productId: cartModelProvider.productId,
+                  //     quantity: count = 1);
+                  // setState(() {});
                 },
                 child: const Icon(
                   Icons.arrow_back_ios_new,
@@ -43,17 +45,22 @@ class _BoxCountState extends State<BoxCount> {
                   size: 16,
                 ),
               ),
-              SizedBox(width: widget.wight ?? 24),
+              SizedBox(width: wight ?? 24),
               Text(
-                count.toString(),
+                // '1',
+                data,
+                // cartModelProvider.quantity.toString(),
                 style:
                     AppStyles.styleRegular16(context, color: AppColor.kGray700),
               ),
-              SizedBox(width: widget.wight ?? 24),
+              SizedBox(width: wight ?? 24),
               GestureDetector(
                 onTap: () {
-                  count++;
-                  setState(() {});
+                  onTapToo();
+                  // cartProvider.updateQuantity(
+                  //     productId: cartModelProvider.productId,
+                  //     quantity: count + 1);
+                  // setState(() {});
                 },
                 child: const Icon(
                   Icons.arrow_forward_ios,

@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_image.dart';
 import 'package:shope_web/core/utils/app_style.dart';
-import 'package:shope_web/features/details/presentation/view/widgets/box_count.dart';
 import 'package:shope_web/features/details/presentation/view/widgets/row_button_product_details.dart';
 
 class RowBoxCountAndButtonAddCart extends StatelessWidget {
@@ -19,7 +18,7 @@ class RowBoxCountAndButtonAddCart extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Row(
             children: [
-              BoxCount(),
+              // BoxCount(),
               SizedBox(width: 16),
               RowButtonProductDetails(),
             ],

@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/features/details/presentation/view/details_view.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/custom_item_product.dart';
-import 'package:shope_web/features/home/presentation/view_model/item_product_model.dart';
 
 class ItemProduct extends StatelessWidget {
-  const ItemProduct({super.key, required this.itemProductModel});
-  final ItemProductModel itemProductModel;
+  const ItemProduct({
+    super.key,
+    required this.productId,
+  });
+  // final ItemProductModel itemProductModel;
+  final String productId;
   @override
   Widget build(BuildContext context) {
+    // final productProvider = Provider.of<ProductProvider>(context);
+    // final getCurrProduct = productProvider.findByProductId(productId);
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(context, DetailsView.idPage);
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const DetailsView(),
-        ));
+        Navigator.pushNamed(context, DetailsView.idPage, arguments: productId);
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => const DetailsView(),
+        // ));
       },
       child: Container(
         width: 248,
@@ -31,7 +36,7 @@ class ItemProduct extends StatelessWidget {
           ),
         ),
         child: CustomItemProduct(
-          itemProductModel: itemProductModel,
+          productId: productId,
         ),
       ),
     );

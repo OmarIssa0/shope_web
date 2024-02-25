@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shope_web/features/cart/presentation/view/cart_view.dart';
+import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
 import 'package:shope_web/features/details/presentation/view/details_view.dart';
 import 'package:shope_web/features/home/presentation/view/home_view.dart';
 import 'package:shope_web/features/login/presentation/view/forgot_password_view.dart';
@@ -27,7 +28,8 @@ class ShopeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ProductProvider()),
+        ChangeNotifierProvider(create: (_) => ProductProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

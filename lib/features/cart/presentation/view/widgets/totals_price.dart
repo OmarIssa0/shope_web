@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shope_web/features/cart/presentation/view/widgets/row_info_cart_totals.dart';
-import 'package:shope_web/features/cart/presentation/view_model/row_info_cart_totals_model.dart';
+import 'package:shope_web/features/cart/presentation/view_model/model/row_info_cart_totals_model.dart';
 
 class TotalsPriceList extends StatelessWidget {
   const TotalsPriceList({super.key});
 
   static const item = [
-    RowInfoCartTotalsModel(title: 'Sub-total', subTitle: r'$320'),
+    // RowInfoCartTotalsModel(title: 'Sub-total', subTitle: r'$320'),
     RowInfoCartTotalsModel(title: 'Shipping', subTitle: 'Free'),
-    RowInfoCartTotalsModel(title: 'Discount', subTitle: r'$24'),
+    RowInfoCartTotalsModel(title: 'Discount', subTitle: r'%24'),
     RowInfoCartTotalsModel(title: 'Tax', subTitle: r'$61.99'),
   ];
 

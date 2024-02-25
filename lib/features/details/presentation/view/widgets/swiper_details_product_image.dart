@@ -11,7 +11,7 @@ class SwiperDetailsProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final productProvider =
         Provider.of<ProductProvider>(context, listen: false);
-    final productId = ModalRoute.of(context)!.settings.arguments as String;
+    String? productId = ModalRoute.of(context)!.settings.arguments as String;
     final getCurrProduct = productProvider.findByProductId(productId);
 
     return Container(
@@ -24,9 +24,12 @@ class SwiperDetailsProductImage extends StatelessWidget {
       child: Swiper(
         itemCount: getCurrProduct!.productImage.length,
         itemBuilder: (context, index) {
-          return Image.network(
-            getCurrProduct.productImage[index],
-            fit: BoxFit.fill,
+          return Hero(
+            tag: getCurrProduct.productId,
+            child: Image.network(
+              getCurrProduct.productImage[index],
+              fit: BoxFit.fill,
+            ),
           );
         },
         autoplay: true,

@@ -1,36 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:shope_web/features/home/presentation/view/widgets/hot_widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/item.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/of_discount.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/sold_out.dart';
-import 'package:shope_web/features/home/presentation/view_model/item_product_model.dart';
+import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 
 class CustomItemProduct extends StatelessWidget {
   const CustomItemProduct({
     super.key,
-    required this.itemProductModel,
+    required this.productId,
   });
 
-  final ItemProductModel itemProductModel;
+  final String productId;
 
   // final bool isActive;
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<ProductProvider>(context);
+    final getCurrProduct = productProvider.findByProductId(productId);
+    // final cartProvider = Provider.of<CartProvider>(context);
+
     return Stack(
       alignment: const Alignment(1, 1),
       children: [
-        if (itemProductModel.isDiscount == true) ...[
-          OfDiscount(discount: itemProductModel.ofDiscount)
-        ] else if (itemProductModel.isSold == true) ...[
+        if (getCurrProduct?.off != null) ...[
+          OfDiscount(discount: getCurrProduct?.off ?? '')
+          // OfDiscount(discount: itemProductModel.ofDiscount)
+        ] else if (getCurrProduct?.inStock == true) ...[
           const SoldOutWidgets()
-        ] else if (itemProductModel.isHot == true) ...[
-          const HotWidgets()
         ],
+        // else if (getCurrProduct. == true) ...[
+        //   const HotWidgets()
+        // ],
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Item(itemProductModel: itemProductModel),
+              Item(productId: productId),
             ],
           ),
         ),
