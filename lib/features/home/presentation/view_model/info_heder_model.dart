@@ -1,7 +1,10 @@
-
 class InfoHederModel {
+  final String title, imageIcon;
+  final Function function;
 
-  final String title , imageIcon;
-
-  const InfoHederModel({required this.imageIcon, required this.title});
+  const InfoHederModel({
+    required this.imageIcon,
+    required this.title,
+    required this.function,
+  });
 }

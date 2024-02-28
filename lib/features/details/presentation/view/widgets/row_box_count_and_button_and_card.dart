@@ -18,8 +18,6 @@ class RowBoxCountAndButtonAddCart extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Row(
             children: [
-              // BoxCount(),
-              SizedBox(width: 16),
               RowButtonProductDetails(),
             ],
           ),

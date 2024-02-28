@@ -7,14 +7,16 @@ class CustomLoginButtonLogin extends StatelessWidget {
     super.key,
     required this.title,
     required this.function,
+    this.color,
   });
   final Function function;
   final String title;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: AppColor.kPrimary500,
+            backgroundColor: color ?? AppColor.kPrimary500,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(2))),
         onPressed: () {

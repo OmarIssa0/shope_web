@@ -4,6 +4,7 @@ import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
 import 'package:shope_web/features/cart/presentation/view_model/model/cart_model.dart';
 import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
+import 'package:shope_web/features/details/presentation/view/details_view.dart';
 import 'package:shope_web/features/details/presentation/view/widgets/box_count.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 
@@ -44,31 +45,40 @@ class _ItemCartDesktopLayoutState extends State<ItemCartDesktopLayout> {
               ),
               SizedBox(
                 width: MediaQuery.sizeOf(context).width * .26,
-                child: ListTile(
-                  leading: Image.network(getCurrProduct.productImage.first),
-                  title: Text(
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    getCurrProduct.productTitle,
-                    style: AppStyles.styleRegular14(context,
-                        color: AppColor.kGray900),
-                  ),
-                  trailing: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('\$${getCurrProduct.productPrice}',
-                          style: AppStyles.styleRegular14(context,
-                              color: AppColor.kGray700)),
-                      getCurrProduct.discount == null
-                          ? const SizedBox.shrink()
-                          : Text(
-                              '\$${getCurrProduct.discount}',
-                              style: AppStyles.styleRegular14(context,
-                                      color: AppColor.kGray400)
-                                  .copyWith(
-                                      decoration: TextDecoration.lineThrough),
-                            ),
-                    ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, DetailsView.idPage,
+                        arguments: getCurrProduct.productId);
+                  },
+                  child: ListTile(
+                    leading: Hero(
+                        tag: getCurrProduct.productId,
+                        child:
+                            Image.network(getCurrProduct.productImage.first)),
+                    title: Text(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      getCurrProduct.productTitle,
+                      style: AppStyles.styleRegular14(context,
+                          color: AppColor.kGray900),
+                    ),
+                    trailing: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('\$${getCurrProduct.productPrice}',
+                            style: AppStyles.styleRegular14(context,
+                                color: AppColor.kGray700)),
+                        getCurrProduct.discount == null
+                            ? const SizedBox.shrink()
+                            : Text(
+                                '\$${getCurrProduct.discount}',
+                                style: AppStyles.styleRegular14(context,
+                                        color: AppColor.kGray400)
+                                    .copyWith(
+                                        decoration: TextDecoration.lineThrough),
+                              ),
+                      ],
+                    ),
                   ),
                 ),
               ),

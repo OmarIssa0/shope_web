@@ -4,6 +4,7 @@ import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
 import 'package:shope_web/features/cart/presentation/view_model/model/cart_model.dart';
 import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
+import 'package:shope_web/features/details/presentation/view/details_view.dart';
 import 'package:shope_web/features/details/presentation/view/widgets/box_count.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 
@@ -33,35 +34,44 @@ class _CustomItemCartViewMobileLayoutState
         ? const SizedBox.shrink()
         : Column(
             children: [
-              ListTile(
-                leading: Image.network(
-                  getCurrProduct.productImage.first,
-                  // "https://i.ibb.co/BtMBSgK/1-iphone14-128gb-black.webp",
-                  // height: size.height * .18,
-                  // width: size.width * 1,
-                ),
-                title: Text(
-                  getCurrProduct.productTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStyles.styleSemiBold18(context,
-                      color: AppColor.kGray900),
-                ),
-                subtitle: Text(
-                  getCurrProduct.productDescription,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStyles.styleRegular14(context,
-                      color: AppColor.kGray800),
-                ),
-                trailing: GestureDetector(
-                  onTap: () {
-                    cartProvider.removeOneItem(
-                        productId: getCurrProduct.productId);
-                  },
-                  child: const Icon(
-                    Icons.cancel,
-                    color: AppColor.kDanger500,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, DetailsView.idPage,
+                      arguments: getCurrProduct.productId);
+                },
+                child: ListTile(
+                  leading: Hero(
+                    tag: getCurrProduct.productId,
+                    child: Image.network(
+                      getCurrProduct.productImage.first,
+                      // "https://i.ibb.co/BtMBSgK/1-iphone14-128gb-black.webp",
+                      // height: size.height * .18,
+                      // width: size.width * 1,
+                    ),
+                  ),
+                  title: Text(
+                    getCurrProduct.productTitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppStyles.styleSemiBold18(context,
+                        color: AppColor.kGray900),
+                  ),
+                  subtitle: Text(
+                    getCurrProduct.productDescription,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppStyles.styleRegular14(context,
+                        color: AppColor.kGray800),
+                  ),
+                  trailing: GestureDetector(
+                    onTap: () {
+                      cartProvider.removeOneItem(
+                          productId: getCurrProduct.productId);
+                    },
+                    child: const Icon(
+                      Icons.cancel,
+                      color: AppColor.kDanger500,
+                    ),
                   ),
                 ),
               ),

@@ -9,6 +9,7 @@ import 'package:shope_web/features/login/presentation/view/forgot_password_view.
 import 'package:shope_web/features/login/presentation/view/login_view.dart';
 import 'package:shope_web/features/search/presentation/view/search_view.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
+import 'package:shope_web/features/track_order/presentation/view/track_order_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +43,7 @@ class ShopeApp extends StatelessWidget {
           LoginView.idPage: (context) => const LoginView(),
           ForgotPasswordView.idPage: (context) => const ForgotPasswordView(),
           CartView.idPage: (context) => const CartView(),
+          TrackOrderView.idPage: (context) => const TrackOrderView(),
         },
       ),
     );

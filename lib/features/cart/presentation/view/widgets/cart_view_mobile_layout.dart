@@ -4,6 +4,8 @@ import 'package:shope_web/features/cart/presentation/view/widgets/cart_is_empty_
 import 'package:shope_web/features/cart/presentation/view/widgets/cart_totals.dart';
 import 'package:shope_web/features/cart/presentation/view/widgets/custom_item_cart_view_mobile_layout.dart';
 import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
+import 'package:shope_web/features/details/presentation/view/widgets/mobile_footer_layout.dart';
+import 'package:shope_web/features/home/presentation/view/widgets/info_dev_footer.dart';
 
 class CartViewMobileLayout extends StatelessWidget {
   const CartViewMobileLayout({super.key});
@@ -27,7 +29,10 @@ class CartViewMobileLayout extends StatelessWidget {
                         child: const CustomItemCartViewMobileLayout()),
                   ),
                 ),
-                const CartTotals()
+                const CartTotals(),
+                const SizedBox(height: 70),
+                const MobileFooterLayout(),
+                const InfoDevFooter()
               ],
             ),
     );

@@ -8,9 +8,12 @@ import 'package:shope_web/features/cart/presentation/view_model/model/row_info_c
 import 'package:shope_web/features/cart/presentation/view_model/provider/cart_provider.dart';
 import 'package:shope_web/features/login/presentation/view/widgets/custom_login_button.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
+import 'package:shope_web/features/track_order/presentation/view/track_order_view.dart';
 
 class CartTotals extends StatelessWidget {
-  const CartTotals({super.key});
+  const CartTotals({super.key, this.isButtonShow});
+
+  final bool? isButtonShow;
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +59,15 @@ class CartTotals extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            CustomLoginButtonLogin(
-                title: 'Proceed to Checkout', function: () {})
+            isButtonShow == false
+                ? const SizedBox.shrink()
+                : CustomLoginButtonLogin(
+                    title: 'Proceed to Checkout',
+                    function: () {
+                      Navigator.pushNamed(context, TrackOrderView.idPage,
+                          arguments: cartProvider);
+                    },
+                  )
           ],
         ),
       ),
