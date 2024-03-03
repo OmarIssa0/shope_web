@@ -10,6 +10,8 @@ import 'package:shope_web/features/login/presentation/view/login_view.dart';
 import 'package:shope_web/features/search/presentation/view/search_view.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
 import 'package:shope_web/features/track_order/presentation/view/track_order_view.dart';
+import 'package:shope_web/features/wishlist/presentation/view/wishlist_view.dart';
+import 'package:shope_web/features/wishlist/presentation/view_model/provider/wishlist_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +33,7 @@ class ShopeApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => WishlistProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -44,6 +47,7 @@ class ShopeApp extends StatelessWidget {
           ForgotPasswordView.idPage: (context) => const ForgotPasswordView(),
           CartView.idPage: (context) => const CartView(),
           TrackOrderView.idPage: (context) => const TrackOrderView(),
+          WishlistView.idPage: (context) => const WishlistView(),
         },
       ),
     );

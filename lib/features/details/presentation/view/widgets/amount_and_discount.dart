@@ -17,16 +17,19 @@ class AmountAndDiscount extends StatelessWidget {
     return Row(
       children: [
         Text(
-          getCurrProduct!.productPrice,
+          '\$${getCurrProduct!.productPrice}',
           style:
               AppStyles.styleSemiBold24(context, color: AppColor.kSecondary500),
         ),
         const SizedBox(width: 5),
-        Text(
-          getCurrProduct.discount ?? '',
-          style: AppStyles.styleRegular18(context, color: AppColor.kGray500)
-              .copyWith(decoration: TextDecoration.lineThrough),
-        ),
+        getCurrProduct.discount == null
+            ? const SizedBox.shrink()
+            : Text(
+                '\$${getCurrProduct.discount ?? ''}',
+                style:
+                    AppStyles.styleRegular18(context, color: AppColor.kGray500)
+                        .copyWith(decoration: TextDecoration.lineThrough),
+              ),
         const SizedBox(width: 13),
         getCurrProduct.off == null
             ? const SizedBox()

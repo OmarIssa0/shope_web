@@ -8,6 +8,7 @@ import 'package:shope_web/features/details/presentation/view/details_view.dart';
 import 'package:shope_web/features/home/presentation/view/widgets/sold_out.dart';
 import 'package:shope_web/features/search/presentation/view_model/model/model_product.dart';
 import 'package:shope_web/features/search/presentation/view_model/provider/search_provider.dart';
+import 'package:shope_web/features/wishlist/presentation/view_model/provider/wishlist_provider.dart';
 
 class ItemProductSearch extends StatelessWidget {
   const ItemProductSearch(
@@ -21,6 +22,7 @@ class ItemProductSearch extends StatelessWidget {
     final productProvider = Provider.of<ProductProvider>(context);
     final getCurrProduct = productProvider.findByProductId(productId);
     final cartProvider = Provider.of<CartProvider>(context);
+    final wishlistProvider = Provider.of<WishlistProvider>(context);
 
     return getCurrProduct == null
         ? const SizedBox.shrink()
@@ -192,14 +194,28 @@ class ItemProductSearch extends StatelessWidget {
                             const SizedBox(width: 25),
                             Expanded(
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  wishlistProvider.addOrRemoveProductToWishlist(
+                                      productId: productId);
+                                },
                                 child: Row(
                                   children: [
-                                    const Icon(IconlyLight.heart,
-                                        color: AppColor.kGray600),
+                                    Icon(
+                                        wishlistProvider.isProductInWishlist(
+                                                productId: productId)
+                                            ? IconlyBold.heart
+                                            : IconlyLight.heart,
+                                        color: wishlistProvider
+                                                .isProductInWishlist(
+                                                    productId: productId)
+                                            ? AppColor.kDanger500
+                                            : AppColor.kGray600),
                                     const SizedBox(width: 10),
                                     Text(
-                                      'Add to wishlist',
+                                      wishlistProvider.isProductInWishlist(
+                                              productId: productId)
+                                          ? 'In Wishlist'
+                                          : 'Add to wishlist',
                                       style: AppStyles.styleMedium18(context,
                                           color: AppColor.kGray600),
                                     ),
