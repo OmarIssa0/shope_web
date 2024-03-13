@@ -125,6 +125,10 @@ class Assets {
   /// assets/images/lottile/cart_is_empty.json
   static const String imagesLottileCartIsEmpty = "assets/images/lottile/cart_is_empty.json";
 
+  /// Assets for imagesLottileError
+  /// assets/images/lottile/error.json
+  static const String imagesLottileError = "assets/images/lottile/error.json";
+
   /// Assets for imagesMac1
   /// assets/images/mac_1.png
   static const String imagesMac1 = "assets/images/mac_1.png";

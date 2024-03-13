@@ -24,12 +24,9 @@ class SwiperDetailsProductImage extends StatelessWidget {
       child: Swiper(
         itemCount: getCurrProduct!.productImage.length,
         itemBuilder: (context, index) {
-          return Hero(
-            tag: getCurrProduct.productId,
-            child: Image.network(
-              getCurrProduct.productImage[index],
-              fit: BoxFit.fill,
-            ),
+          return Image.network(
+            getCurrProduct.productImage[index],
+            fit: BoxFit.fill,
           );
         },
         autoplay: true,

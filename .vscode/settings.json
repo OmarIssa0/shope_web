@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
-        "CLICON"
+        "CLICON",
+        "Firestore",
+        "unfocus"
     ],
     "cmake.sourceDirectory": "C:/Users/user/Desktop/folder/App flutter tow/shope_web/windows/flutter",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "dart.flutterSdkPath": "C:\\src\\flutter"
 }

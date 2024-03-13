@@ -47,180 +47,220 @@ class _CustomGridViewSearchViewState extends State<CustomGridViewSearchView> {
         : productProvider.findByCategory(catName: passedCategory);
 
     if (MediaQuery.sizeOf(context).width < SizeConfig.tablet) {
-      return productList.isEmpty
-          ? Expanded(
-              child: Center(
-                child: Text(
-                  'No product found',
-                  style: AppStyles.styleMedium20(context,
-                      color: AppColor.kGray900),
-                ),
-              ),
-            )
-          : Column(
-              children: [
-                SearchTextFiled(
-                  child: TextField(
-                    controller: _textEditingController,
-                    scrollPadding: const EdgeInsets.all(0),
-                    cursorColor: AppColor.kSecondary700,
-                    decoration: InputDecoration(
-                      hintText: 'Search for anything...',
-                      hintStyle: AppStyles.styleRegular16(context,
-                          color: AppColor.kGray500),
-                      contentPadding: const EdgeInsets.all(0),
-                      prefixIcon: const Icon(
-                        IconlyLight.search,
-                        color: AppColor.kGray600,
+      return
+          // productList.isEmpty
+          //     ? Expanded(
+          //         child: Center(
+          //           child: Text(
+          //             'No product found',
+          //             style: AppStyles.styleMedium20(context,
+          //                 color: AppColor.kGray900),
+          //           ),
+          //         ),
+          //       )
+          //     :
+          StreamBuilder<List<ProductModel>>(
+              stream: productProvider.fetchProductStream(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  Center(
+                    child: Text(snapshot.error.toString()),
+                  );
+                } else if (snapshot.data == null) {
+                  const Center(
+                    child: Text('No product has been added'),
+                  );
+                }
+
+                return Column(
+                  children: [
+                    SearchTextFiled(
+                      child: TextField(
+                        controller: _textEditingController,
+                        scrollPadding: const EdgeInsets.all(0),
+                        cursorColor: AppColor.kSecondary700,
+                        decoration: InputDecoration(
+                          hintText: 'Search for anything...',
+                          hintStyle: AppStyles.styleRegular16(context,
+                              color: AppColor.kGray500),
+                          contentPadding: const EdgeInsets.all(0),
+                          prefixIcon: const Icon(
+                            IconlyLight.search,
+                            color: AppColor.kGray600,
+                          ),
+                          border: buildBorder(),
+                          enabledBorder: buildBorder(),
+                          focusedBorder: buildBorder(),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            listSearchProduct = productProvider.searchQuery(
+                                searchText: _textEditingController.text,
+                                passedList: productList);
+                          });
+                        },
+                        onSubmitted: (value) {
+                          setState(() {
+                            listSearchProduct = productProvider.searchQuery(
+                                searchText: _textEditingController.text,
+                                passedList: productList);
+                          });
+                        },
                       ),
-                      border: buildBorder(),
-                      enabledBorder: buildBorder(),
-                      focusedBorder: buildBorder(),
                     ),
-                    onChanged: (value) {
-                      setState(() {
-                        listSearchProduct = productProvider.searchQuery(
-                            searchText: _textEditingController.text,
-                            passedList: productList);
-                      });
-                    },
-                    onSubmitted: (value) {
-                      setState(() {
-                        listSearchProduct = productProvider.searchQuery(
-                            searchText: _textEditingController.text,
-                            passedList: productList);
-                      });
-                    },
-                  ),
-                ),
-                if (_textEditingController.text.isNotEmpty &&
-                    listSearchProduct.isEmpty) ...[
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        "No results found",
-                        style: AppStyles.styleMedium20(context,
-                            color: AppColor.kGray900),
+                    if (_textEditingController.text.isNotEmpty &&
+                        listSearchProduct.isEmpty) ...[
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            "No results found",
+                            style: AppStyles.styleMedium20(context,
+                                color: AppColor.kGray900),
+                          ),
+                        ),
+                      )
+                    ],
+                    Expanded(
+                      child: DynamicHeightGridView(
+                        itemCount: _textEditingController.text.isNotEmpty
+                            ? listSearchProduct.length
+                            : productList.length,
+                        crossAxisCount:
+                            // MediaQuery.sizeOf(context).width < SizeConfig.tablet ? 1 : 2,
+                            1,
+                        mainAxisSpacing: 0,
+                        builder: (context, index) {
+                          return ItemProductSearch(
+                            productId: _textEditingController.text.isNotEmpty
+                                ? listSearchProduct[index].productId
+                                : productList[index].productId,
+                            productModel: _textEditingController.text.isNotEmpty
+                                ? listSearchProduct[index]
+                                : productList[index],
+                          );
+                        },
                       ),
                     ),
-                  )
-                ],
-                Expanded(
-                  child: DynamicHeightGridView(
-                    itemCount: _textEditingController.text.isNotEmpty
-                        ? listSearchProduct.length
-                        : productList.length,
-                    crossAxisCount:
-                        // MediaQuery.sizeOf(context).width < SizeConfig.tablet ? 1 : 2,
-                        1,
-                    mainAxisSpacing: 0,
-                    builder: (context, index) {
-                      return ItemProductSearch(
-                        productId: _textEditingController.text.isNotEmpty
-                            ? listSearchProduct[index].productId
-                            : productList[index].productId,
-                        productModel: _textEditingController.text.isNotEmpty
-                            ? listSearchProduct[index]
-                            : productList[index],
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
+                  ],
+                );
+              });
     } else if (MediaQuery.sizeOf(context).width >= SizeConfig.desktop ||
         MediaQuery.sizeOf(context).width < SizeConfig.desktop) {
-      return productList.isEmpty
-          ? Column(
-              children: [
-                const HederSection(),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'no product found',
-                      style: AppStyles.styleMedium16(context,
-                          color: AppColor.kGray900),
-                    ),
-                  ),
-                ),
-              ],
-            )
-          : Column(
-              children: [
-                const HederSection(),
-                // const SearchTextFiled(),
-                SearchTextFiled(
-                  child: TextField(
-                    controller: _textEditingController,
-                    scrollPadding: const EdgeInsets.all(0),
-                    cursorColor: AppColor.kSecondary700,
-                    decoration: InputDecoration(
-                      hintText: 'Search for anything...',
-                      hintStyle: AppStyles.styleRegular16(context,
-                          color: AppColor.kGray500),
-                      contentPadding: const EdgeInsets.all(0),
-                      prefixIcon: const Icon(
-                        IconlyLight.search,
-                        color: AppColor.kGray600,
-                      ),
-                      border: buildBorder(),
-                      enabledBorder: buildBorder(),
-                      focusedBorder: buildBorder(),
-                    ),
-                    onChanged: (value) {
-                      setState(() {
-                        listSearchProduct = productProvider.searchQuery(
-                            searchText: _textEditingController.text,
-                            passedList: productList);
-                      });
-                    },
-                    onSubmitted: (value) {
-                      setState(() {
-                        listSearchProduct = productProvider.searchQuery(
-                            searchText: _textEditingController.text,
-                            passedList: productList);
-                      });
-                    },
-                  ),
-                ),
-                if (_textEditingController.text.isNotEmpty &&
-                    listSearchProduct.isEmpty) ...[
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        "No results found",
-                        style: AppStyles.styleMedium20(context,
-                            color: AppColor.kGray900),
-                      ),
-                    ),
-                  ),
-                ],
+      return
+          // productList.isEmpty
+          // ? Column(
+          //     children: [
+          //       const HederSection(),
+          //       Expanded(
+          //         child: Center(
+          //           child: Text(
+          //             'no product found',
+          //             style: AppStyles.styleMedium16(context,
+          //                 color: AppColor.kGray900),
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   )
+          // :
+          StreamBuilder<List<ProductModel>>(
+              stream: productProvider.fetchProductStream(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  Center(
+                    child: Text(snapshot.error.toString()),
+                  );
+                } else if (snapshot.data == null) {
+                  const Center(
+                    child: Text('No product has been added'),
+                  );
+                }
 
-                Expanded(
-                  child: DynamicHeightGridView(
-                    itemCount: _textEditingController.text.isNotEmpty
-                        ? listSearchProduct.length
-                        : productList.length,
-                    crossAxisCount:
-                        MediaQuery.sizeOf(context).width >= SizeConfig.desktop
+                return Column(
+                  children: [
+                    const HederSection(),
+                    // const SearchTextFiled(),
+                    SearchTextFiled(
+                      child: TextField(
+                        controller: _textEditingController,
+                        scrollPadding: const EdgeInsets.all(0),
+                        cursorColor: AppColor.kSecondary700,
+                        decoration: InputDecoration(
+                          hintText: 'Search for anything...',
+                          hintStyle: AppStyles.styleRegular16(context,
+                              color: AppColor.kGray500),
+                          contentPadding: const EdgeInsets.all(0),
+                          prefixIcon: const Icon(
+                            IconlyLight.search,
+                            color: AppColor.kGray600,
+                          ),
+                          border: buildBorder(),
+                          enabledBorder: buildBorder(),
+                          focusedBorder: buildBorder(),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            listSearchProduct = productProvider.searchQuery(
+                                searchText: _textEditingController.text,
+                                passedList: productList);
+                          });
+                        },
+                        onSubmitted: (value) {
+                          setState(() {
+                            listSearchProduct = productProvider.searchQuery(
+                                searchText: _textEditingController.text,
+                                passedList: productList);
+                          });
+                        },
+                      ),
+                    ),
+                    if (_textEditingController.text.isNotEmpty &&
+                        listSearchProduct.isEmpty) ...[
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            "No results found",
+                            style: AppStyles.styleMedium20(context,
+                                color: AppColor.kGray900),
+                          ),
+                        ),
+                      ),
+                    ],
+
+                    Expanded(
+                      child: DynamicHeightGridView(
+                        itemCount: _textEditingController.text.isNotEmpty
+                            ? listSearchProduct.length
+                            : productList.length,
+                        crossAxisCount: MediaQuery.sizeOf(context).width >=
+                                SizeConfig.desktop
                             ? 3
                             : 2,
-                    // 2,
-                    mainAxisSpacing: 0,
-                    builder: (context, index) {
-                      return ItemProductSearch(
-                        productId: _textEditingController.text.isNotEmpty
-                            ? listSearchProduct[index].productId
-                            : productList[index].productId,
-                        productModel: _textEditingController.text.isNotEmpty
-                            ? listSearchProduct[index]
-                            : productList[index],
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
+                        // 2,
+                        mainAxisSpacing: 0,
+                        builder: (context, index) {
+                          return ItemProductSearch(
+                            productId: _textEditingController.text.isNotEmpty
+                                ? listSearchProduct[index].productId
+                                : productList[index].productId,
+                            productModel: _textEditingController.text.isNotEmpty
+                                ? listSearchProduct[index]
+                                : productList[index],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              });
     } else {
       return const SizedBox();
     }

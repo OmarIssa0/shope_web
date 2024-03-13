@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:shope_web/core/constant/my_function.dart';
 import 'package:shope_web/core/constant/my_validators.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_style.dart';
@@ -17,6 +19,10 @@ class TextFiledSignIn extends StatefulWidget {
 
 class _TextFiledSignInState extends State<TextFiledSignIn> {
   late final _formKey = GlobalKey<FormState>();
+
+  bool isLoading = false;
+
+  final auth = FirebaseAuth.instance;
 
   bool obscureText = true;
 
@@ -42,14 +48,6 @@ class _TextFiledSignInState extends State<TextFiledSignIn> {
     _emailFocusNode.dispose();
     _passwordFocusNode.dispose();
     super.dispose();
-  }
-
-  Future<void> _signIn() async {
-    final isValid = _formKey.currentState!.validate();
-    FocusScope.of(context).unfocus();
-    if (isValid) {
-      _formKey.currentState!.save();
-    }
   }
 
   @override
@@ -137,7 +135,14 @@ class _TextFiledSignInState extends State<TextFiledSignIn> {
               focusedBorder: buildBorder(),
             ),
             onFieldSubmitted: (value) {
-              _signIn();
+              MyFunction.signIn(
+                context: context,
+                auth: auth,
+                email: _emailController,
+                formKey: _formKey,
+                isLoading: isLoading,
+                password: _passwordController,
+              );
             },
             validator: (value) {
               return MyValidators.passwordValidator(value);
@@ -146,7 +151,14 @@ class _TextFiledSignInState extends State<TextFiledSignIn> {
           const SizedBox(height: 24),
           CustomLoginButtonLogin(
             function: () {
-              _signIn();
+              MyFunction.signIn(
+                context: context,
+                auth: auth,
+                email: _emailController,
+                formKey: _formKey,
+                isLoading: isLoading,
+                password: _passwordController,
+              );
             },
             title: 'SIGN IN',
           ),

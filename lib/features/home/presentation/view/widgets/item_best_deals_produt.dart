@@ -34,9 +34,11 @@ class ItemBestDealsProduct extends StatelessWidget {
           physics: const PageScrollPhysics(),
           child: Row(
             children: [
-              BestItemProduct(
-                productId: productListToo[0].productId,
-              ),
+              // productListToo[0].productId == null
+              //     ? const SizedBox.shrink()
+              //     : BestItemProduct(
+              //         productId: productListToo[0].productId,
+              //       ),
               Column(
                 children: [
                   ListViewItemProduct(

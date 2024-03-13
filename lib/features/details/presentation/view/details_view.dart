@@ -12,7 +12,7 @@ import 'package:shope_web/features/home/presentation/view/widgets/custom_logo.da
 
 class DetailsView extends StatefulWidget {
   const DetailsView({super.key});
-  static const idPage = '/details view';
+  static const idPage = '/detailsView';
 
   @override
   State<DetailsView> createState() => _DetailsViewState();

@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shope_web/core/constant/my_function.dart';
 import 'package:shope_web/core/utils/app_color.dart';
 import 'package:shope_web/core/utils/app_image.dart';
 import 'package:shope_web/core/utils/app_style.dart';
@@ -21,7 +21,9 @@ class CustomButtonGoogleLogin extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 side: const BorderSide(color: AppColor.kGray100),
                 borderRadius: BorderRadius.circular(2))),
-        onPressed: () {},
+        onPressed: () {
+          MyFunction.googleButton(context: context);
+        },
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Row(

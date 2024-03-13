@@ -32,6 +32,14 @@ class ItemProductSearch extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, DetailsView.idPage,
                     arguments: getCurrProduct.productId);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) {
+                //       return const DetailsView();
+                //     },
+                //   ),
+                // );
               },
               child: Material(
                 borderRadius: BorderRadius.circular(12),
@@ -71,15 +79,16 @@ class ItemProductSearch extends StatelessWidget {
                             color: AppColor.kGray600),
                       ),
                       const SizedBox(height: 15),
-                      Hero(
-                        tag: getCurrProduct.productId,
-                        child: Image.network(
-                          getCurrProduct.productImage.first,
-                          // Assets.imagesIphone,
-                          // fit: BoxFit.fill,
-                          width: double.infinity,
-                          height: MediaQuery.sizeOf(context).height * .2,
-                        ),
+                      // Hero(
+                      // tag: getCurrProduct.productId,
+                      // child:
+                      Image.network(
+                        getCurrProduct.productImage.first.toString(),
+                        // Assets.imagesIphone,
+                        // fit: BoxFit.fill,
+                        width: double.infinity,
+                        height: MediaQuery.sizeOf(context).height * .2,
+                        // ),
                       ),
                       Divider(color: Colors.grey.shade100),
                       Row(

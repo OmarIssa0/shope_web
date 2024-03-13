@@ -23,11 +23,13 @@ class TitleAndSubtitleAndButtonProduct extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Hero(
-            tag: getCurrProduct!.productId,
-            child: Image.network(getCurrProduct.productImage.first,
-                height: 268, width: 280),
-          ),
+          getCurrProduct?.productId == null
+              ? const SizedBox.shrink()
+              : Hero(
+                  tag: getCurrProduct!.productId,
+                  child: Image.network(getCurrProduct.productImage.first,
+                      height: 268, width: 280),
+                ),
           // Row(
           //   children: [
           //     Row(
@@ -42,7 +44,7 @@ class TitleAndSubtitleAndButtonProduct extends StatelessWidget {
           // ),
           const SizedBox(height: 6),
           Text(
-            getCurrProduct.productTitle,
+            getCurrProduct!.productTitle,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: AppStyles.styleRegular16(
